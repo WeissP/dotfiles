@@ -1,1 +1,3 @@
 .config/system-level-dotfiles/etc/systemd/system/tukVpn.service
+.ssh/*
+.gnupg/*

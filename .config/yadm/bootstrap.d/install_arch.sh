@@ -78,7 +78,10 @@ function install() {
 function main() {
     check
     echo "installing yay"
-    sudo pacman -Ssu --noconfirm yay
+    pacman -S --needed git base-devel
+    git clone https://aur.archlinux.org/yay.git
+    cd yay
+    makepkg -si
     install
 }
 

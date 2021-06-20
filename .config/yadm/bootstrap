@@ -6,6 +6,8 @@
 
 set -eu
 
+yadm decrypt 
+
 # Directory to look for bootstrap executables in
 BOOTSTRAP_D="${BASH_SOURCE[0]}.d"
 

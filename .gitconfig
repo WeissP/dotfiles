@@ -1,0 +1,5 @@
+[user]
+	email = kingbaiing@163.com
+	name = weiss
+[core]
+	editor = emacsclient

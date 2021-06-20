@@ -18,9 +18,8 @@ packages=(
 
     npm
     python-pip
-    rubygems
-    rubyrdoc
-
+    starship-bin
+    
     # Fonts
     adobe-source-code-pro-fonts
     powerline-fonts
@@ -77,11 +76,16 @@ function install() {
 
 function main() {
     check
-    echo "installing yay"
-    pacman -S --needed git base-devel
-    git clone https://aur.archlinux.org/yay.git
-    cd yay
-    makepkg -si
+
+    if ! command -v yay >/dev/null 2>&1; then
+        echo "installing yay"
+        pacman -S --needed git base-devel
+        cd /tmp
+        git clone https://aur.archlinux.org/yay.git
+        cd yay
+        makepkg -si
+    fi
+
     install
 }
 

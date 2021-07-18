@@ -62,9 +62,9 @@ function check() {
 function install() {
     CMD=''
     if command -v yay >/dev/null 2>&1; then
-        CMD='yay -Ssu --noconfirm'
+        CMD='yay -S --noconfirm'
     elif command -v pacman >/dev/null 2>&1; then
-        CMD='sudo pacman -Ssu --noconfirm'
+        CMD='sudo pacman -S --noconfirm'
     else
         echo "${RED}Error: not Archlinux or its devrived edition.${NORMAL}" >&2
         exit 1

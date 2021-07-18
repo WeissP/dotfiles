@@ -15,6 +15,7 @@ packages=(
     fd
     fzf
     ripgrep
+    rsync
     # shadowsocks-qt5
 
     npm

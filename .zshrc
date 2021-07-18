@@ -54,6 +54,11 @@ zinit light sei40kr/fast-alias-tips-bin
 zinit ice wait lucid depth"1"
 zinit light sei40kr/zsh-fast-alias-tips
 
+gen-tags() {
+    read ctagslang'?langs:'
+    ctags --languages=$ctagslang --kinds-all='*' --fields='*' --extras='*' -R
+}
+
 # autojump
 [[ -f ~/.autojump/etc/profile.d/autojump.sh ]] && source ~/.autojump/etc/profile.d/autojump.sh
 

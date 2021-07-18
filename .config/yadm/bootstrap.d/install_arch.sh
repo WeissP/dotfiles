@@ -7,6 +7,7 @@
 # Packages
 packages=(
     git
+    autojump
     zsh
     # emacs
     neofetch                    # screenfetch
@@ -27,6 +28,7 @@ packages=(
     wqy-microhei
     wqy-microhei-lite
     wqy-zenhei
+    ttf-jetbrains-mono
 )
 
 # Use colors, but only if connected to a terminal, and that terminal

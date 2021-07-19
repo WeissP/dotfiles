@@ -1,0 +1,2 @@
+* * * * * bb /home/weiss/clojure/recentf-db/clean_recentf.clj
+0 12 * * * pg_dump recentf > /home/weiss/clojure/recentf-db/recentf.dmp

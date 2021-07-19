@@ -10,10 +10,10 @@ function main() {
     git checkout 00101a8d4cc5bbf875711753c936be52e6e549b1
     ./configure --with-gnutls --with-imagemagick --with-jpeg --with-png --with-rsvg --with-tiff --with-wide-int --with-xft --with-xml2 --with-xpm prefix=/usr/local
     make -j4
-    make install
+    sudo make install
 
-    mkdir -p ~/weiss
-    cd ~/weiss
+    mkdir -p /home/weiss/weiss
+    cd /home/weiss/weiss
     git clone git@github.com:WeissP/EmacsConfigManager.git
     cd EmacsConfigManager
     go get

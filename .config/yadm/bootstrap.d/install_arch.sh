@@ -98,7 +98,7 @@ function main() {
 
     sudo systemctl start sshd
     chsh -s $(which zsh)
-    cat ~/weiss/crontab-jobs | crontab -
+    cat /home/weiss/weiss/crontab-jobs | crontab -
 }
 
 main

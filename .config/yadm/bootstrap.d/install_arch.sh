@@ -16,13 +16,15 @@ packages=(
     fzf
     ripgrep
     rsync
-    # shadowsocks-qt5
+    alacritty
 
     npm
     python-pip
     starship-bin
     openssh
+
     clojure
+
     # Fonts
     adobe-source-code-pro-fonts
     powerline-fonts
@@ -31,6 +33,10 @@ packages=(
     wqy-microhei-lite
     wqy-zenhei
     ttf-jetbrains-mono
+
+    hunspell
+    hunspell-de
+    hunspell-en_us
 )
 
 # Use colors, but only if connected to a terminal, and that terminal

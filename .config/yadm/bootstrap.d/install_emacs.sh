@@ -11,6 +11,17 @@ function main() {
     ./configure --with-gnutls --with-imagemagick --with-jpeg --with-png --with-rsvg --with-tiff --with-wide-int --with-xft --with-xml2 --with-xpm prefix=/usr/local
     make -j4
     make install
+
+    mkdir -p ~/weiss
+    cd ~/weiss
+    git clone git@github.com:WeissP/EmacsConfigManager.git
+    cd EmacsConfigManager
+    go get
+    
+    git clone git@github.com:WeissP/recentf-db.git
+
+    cd ~
+    git clone git@github.com:WeissP/.emacs.d.git
 }
 
 main

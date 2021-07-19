@@ -21,7 +21,8 @@ packages=(
     npm
     python-pip
     starship-bin
-    
+    openssh
+    clojure
     # Fonts
     adobe-source-code-pro-fonts
     powerline-fonts
@@ -90,6 +91,10 @@ function main() {
     fi
 
     install
+
+
+    sudo systemctl start sshd
+
 }
 
 main

@@ -65,7 +65,7 @@ function main() {
     sudo rsync -aArXvIP ~/.config/system-level-dotfiles/* /
 
     check
-
+    sudo pacman -Syyu
     install
 }
 

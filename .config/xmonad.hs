@@ -332,19 +332,19 @@ main = xmonad defaults
 defaults = defaultConfig {
       -- simple stuff
         terminal           = myTerminal,
-        borderWidth        = myBorderWidth,
+        -- borderWidth        = myBorderWidth,
         modMask            = myModMask,
-        numlockMask        = myNumlockMask,
-        workspaces         = myWorkspaces,
-        normalBorderColor  = myNormalBorderColor,
-        focusedBorderColor = myFocusedBorderColor,
+        -- numlockMask        = myNumlockMask,
+        -- workspaces         = myWorkspaces,
+        -- normalBorderColor  = myNormalBorderColor,
+        -- focusedBorderColor = myFocusedBorderColor,
  
       -- key bindings
-        keys               = myKeys,
-        mouseBindings      = myMouseBindings,
+        -- keys               = myKeys,
+        -- mouseBindings      = myMouseBindings,
  
       -- hooks, layouts
-        layoutHook         = myLayout,
-        manageHook         = myManageHook,
-        logHook            = myLogHook
+        -- layoutHook         = myLayout,
+        -- manageHook         = myManageHook,
+        -- logHook            = myLogHook
     }

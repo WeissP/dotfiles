@@ -62,7 +62,7 @@ function main() {
     sudo pacman -Syyu
 
     yay -S --noconfirm rsync
-    sudo rsync -aArXvIP ~/.config/system-level-dotfiles/* /
+    sudo rsync -aArXvIP /home/weiss/.config/system-level-dotfiles/* /
 
     check
     sudo pacman -Syyu

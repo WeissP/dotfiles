@@ -18,11 +18,11 @@ function main() {
     cd EmacsConfigManager
     go get
     
-    mkdir -p ~/clojure
-    cd ~/clojure
+    mkdir -p /home/weiss/clojure
+    cd /home/weiss/clojure
     git clone git@github.com:WeissP/recentf-db.git
 
-    cd ~
+    cd /home/weiss
     git clone git@github.com:WeissP/.emacs.d.git
 }
 

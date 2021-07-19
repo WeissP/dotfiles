@@ -18,6 +18,8 @@ function main() {
     cd EmacsConfigManager
     go get
     
+    mkdir -p ~/clojure
+    cd ~/clojure
     git clone git@github.com:WeissP/recentf-db.git
 
     cd ~

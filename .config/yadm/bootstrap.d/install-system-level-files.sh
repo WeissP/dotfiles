@@ -9,6 +9,7 @@
 #############################################################
 # Packages
 packages=(
+    rsync
     archlinuxcn-keyring
 )
 
@@ -58,19 +59,12 @@ function install() {
 }
 
 function main() {
-    sudo rsync -aArXvIP ~/.config/system-level-dotfiles/* /
     sudo pacman -Syyu
 
-    check
+    yay -S --noconfirm rsync
+    sudo rsync -aArXvIP ~/.config/system-level-dotfiles/* /
 
-    if ! command -v yay >/dev/null 2>&1; then
-        echo "installing yay"
-        pacman -S --needed git base-devel
-        cd /tmp
-        git clone https://aur.archlinux.org/yay.git
-        cd yay
-        makepkg -si
-    fi
+    check
 
     install
 }

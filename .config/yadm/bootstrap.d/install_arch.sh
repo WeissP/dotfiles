@@ -1,15 +1,10 @@
 #!/bin/bash
-#############################################################
-# Install packages for Archlinux or its derived editions (e.g. Manjaro).
-# Author: Vincent Zhang <seagle0128@gmail.com>
-# URL: https://github.com/seagle0128/dotfiles
-#############################################################
+
 # Packages
 packages=(
     git
     autojump
     zsh
-    # emacs
     neofetch                    # screenfetch
     bat
     fd
@@ -17,6 +12,7 @@ packages=(
     ripgrep
     rsync
     alacritty
+    cronie
 
     npm
     python-pip
@@ -24,6 +20,7 @@ packages=(
     openssh
 
     clojure
+    babashka
 
     # Fonts
     adobe-source-code-pro-fonts
@@ -100,7 +97,8 @@ function main() {
 
 
     sudo systemctl start sshd
-
+    chsh -s $(which zsh)
+    cat ~/weiss/crontab-jobs | crontab -
 }
 
 main

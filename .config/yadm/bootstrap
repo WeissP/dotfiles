@@ -4,7 +4,7 @@ set -eu
 
 yadm decrypt 
 
-scripts = (
+scripts=(
     $BOOTSTRAP_D/install-system-level-files.sh
     $BOOTSTRAP_D/install_emacs.sh
     $BOOTSTRAP_D/install_arch.sh

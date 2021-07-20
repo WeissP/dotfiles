@@ -34,6 +34,7 @@ packages=(
     wqy-microhei-lite
     wqy-zenhei
     ttf-jetbrains-mono
+    nerd-fonts-fira-code
 
     hunspell
     hunspell-de

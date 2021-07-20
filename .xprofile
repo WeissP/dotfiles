@@ -1,8 +1,9 @@
+setxkbmap de &
+xset r rate 230 30 &
+
 export GTK_IM_MODULE=fcitx 
 export QT_IM_MODULE=fcitx
 export XMODIFIERS="@im=fcitx"
-
-setxkbmap de &
 
 Mouse_ID=$(xinput list | grep "ELECOM ELECOM TrackBall Mouse" | head -n 1 | sed -r 's/.*id=([0-9]+).*/\1/') &
 xinput set-prop ${Mouse_ID} 'libinput Button Scrolling Button' 9 &

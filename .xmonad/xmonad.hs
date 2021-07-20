@@ -91,8 +91,8 @@ myFocusedBorderColor = "#aa0000"
 myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
  
     -- launch a terminal
-    [ ((<F6>)       , spawn $ XMonad.terminal conf)
-    , ((<F17>)            , spawn "dmenu_run")
+    [ ((0, F6)       , spawn $ XMonad.terminal conf)
+    , ((0, F17)            , spawn "dmenu_run")
  
 --     , ((modMask,               xK_p     )       , spawn "mpc toggle")
 --     , ((modMask,               xK_bracketright) , spawn "mpc volume +5")
@@ -230,7 +230,7 @@ defaults = defaultConfig {
       -- simple stuff
         terminal           = myTerminal,
         -- borderWidth        = myBorderWidth,
-        modMask            = myModMask,
+        modMask            = myModMask
         -- numlockMask        = myNumlockMask,
         -- workspaces         = myWorkspaces,
         -- normalBorderColor  = myNormalBorderColor,

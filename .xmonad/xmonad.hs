@@ -26,6 +26,7 @@ import XMonad.Prompt.Workspace
 import qualified XMonad.StackSet as W
 import XMonad.Util.Scratchpad
 
+import XMonad.Util.EZConfig
 -- The preferred terminal program, which is used in a binding below and by
 -- certain contrib modules.
 --
@@ -195,7 +196,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) =
 
 -- Run xmonad with the settings you specify. No need to modify this.
 --
-main = xmonad defaults
+-- main = xmonad defaults
 
 main =
   xmonad $

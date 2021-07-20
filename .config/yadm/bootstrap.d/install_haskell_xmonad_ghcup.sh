@@ -38,10 +38,11 @@ function main() {
     export PATH=/home/weiss/.local/bin:$PATH
 
     cabal install stack
-    stack install xmonad
-    stack install xmonad-contrib
-    stack install xmobar
-    stack install ormolu
+    cabal install ghc
+    cabal install --lib xmonad
+    cabal install --lib xmonad-contrib
+    cabal install --lib xmobar
+    cabal install --lib ormolu
     
     sudo systemctl enable lightdm
 }

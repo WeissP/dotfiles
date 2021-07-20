@@ -1,10 +1,10 @@
 #!/bin/bash
 
-user_dir="/home/weiss"
+
 
 function main() {
     echo "start clone"
-    cd $user_dir
+    cd $MYUSERDIR
     git clone https://git.savannah.gnu.org/git/emacs.git
     cd emacs
     git checkout 00101a8d4cc5bbf875711753c936be52e6e549b1
@@ -12,17 +12,17 @@ function main() {
     make -j4
     sudo make install
 
-    mkdir -p /home/weiss/weiss
-    cd /home/weiss/weiss
+    mkdir -p $MYUSERDIR/weiss
+    cd $MYUSERDIR/weiss
     git clone git@github.com:WeissP/EmacsConfigManager.git
     cd EmacsConfigManager
     go get
     
-    mkdir -p /home/weiss/clojure
-    cd /home/weiss/clojure
+    mkdir -p $MYUSERDIR/clojure
+    cd $MYUSERDIR/clojure
     git clone git@github.com:WeissP/recentf-db.git
 
-    cd /home/weiss
+    cd $MYUSERDIR
     git clone git@github.com:WeissP/.emacs.d.git
 }
 

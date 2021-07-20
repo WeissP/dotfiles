@@ -109,7 +109,7 @@ defaults = defaultConfig {
       -- simple stuff
         terminal           = myTerminal,
         -- borderWidth        = myBorderWidth,
-        modMask            = myModMask,
+        modMask            = myModMask
         -- numlockMask        = myNumlockMask,
         -- workspaces         = myWorkspaces,
         -- normalBorderColor  = myNormalBorderColor,

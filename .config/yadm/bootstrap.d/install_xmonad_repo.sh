@@ -7,6 +7,7 @@ source ./common.sh
 packages=(
     xorg
     xorg-xmessage
+    xterm
     lightdm
     lightdm-gtk-greeter
     xmonad

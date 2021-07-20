@@ -1,4 +1,4 @@
-[[ $TERM == "tramp" ]] && unsetopt zle && PS1='$ ' && return
+ && unsetopt zle && PS1='$ ' && return
 
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then

@@ -6,7 +6,7 @@
 
 set -eu
 
-sudo yadm decrypt 
+yadm decrypt 
 
 
 # Directory to look for bootstrap executables in

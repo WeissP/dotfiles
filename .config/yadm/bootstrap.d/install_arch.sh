@@ -1,5 +1,7 @@
 #!/bin/bash
 
+parent_path=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
+cd "$parent_path"
 source ./common.sh 
 
 # Packages
@@ -47,7 +49,7 @@ function main() {
 
     sudo systemctl start sshd
     chsh -s $(which zsh)
-    cat /home/weiss/weiss/crontab-jobs | crontab -
+    cat $MYUSERDIR/weiss/crontab-jobs | crontab -
 }
 
 main

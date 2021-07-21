@@ -20,6 +20,7 @@ packages=(
 function main() {
     check
     install
+    sudo systemctl enable lightdm
 }
 
 main

@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+# 
+# File:
+#   getwindclassbyname
+# 
+# Description:
+#   Get the class of a window by name.
+# 
+# Usage:
+#   getwindclassbyname <window_name>
+# 
+#   <window_name>: case-sensitive; matched partially
+# 
+# Returns:
+#   Full qualified class string (i.e. class and classname; e.g. "xterm.XTerm")
+#   of window; multiple class strings separated by a newline if more than one
+#   class exists
+# 
+
+if [ "$#" -eq 0 ]; then
+  exit 1
+fi
+
+WINDOW_CLASSES=("$(wmctrl -lx | awk -v srchTxt="${1}" '{$1=$2=$4=""; wn = \
+    gensub(/([^ ]+[ ]+)(.*)/, "\\2", "g", $0); gsub(/ /, "", wn)} wn ~ srchTxt \
+    {print $3}' | sort | uniq)")
+
+if [ "${#WINDOW_CLASSES[@]}" -gt 0 ] && [ -n "${WINDOW_CLASSES[0]}" ]; then
+  echo "${WINDOW_CLASSES[@]}"
+fi

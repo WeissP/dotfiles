@@ -1,0 +1,4 @@
+patch:
+  # 分号上屏二候选词；引号上屏三候选词
+  "key_binder/bindings":
+    - { when: has_menu, accept: dollar, send: 2 }

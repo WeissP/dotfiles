@@ -1,0 +1,8 @@
+patch:
+  schema_list:
+    - { schema: flypyplus } # 我只添加了小鹤双拼，需要其他的可以添加
+
+  "menu/page_size": 1 # 候选栏个数
+
+  "switcher/hotkeys":
+    - "Control+Shift+F8" # 切换快捷键

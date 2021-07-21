@@ -26,6 +26,26 @@ function main() {
 
     cd $MYUSERDIR
     git clone git@github.com:WeissP/.emacs.d.git
+
+    cd $MYUSERDIR/weiss
+    git clone https://github.com/universal-ctags/ctags.git
+    cd ctags
+    ./autogen.sh
+    ./configure
+    make
+    sudo make install
+
+    cd $MYUSERDIR/weiss
+    git clone https://github.com/tdlib/td.git
+    cd td
+    rm -rf build
+    mkdir build
+    cd build
+    CXXFLAGS="-stdlib=libc++" CC=/usr/bin/clang CXX=/usr/bin/clang++ cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX:PATH=../tdlib -DTD_ENABLE_LTO=ON -DCMAKE_AR=/usr/bin/llvm-ar -DCMAKE_NM=/usr/bin/llvm-nm -DCMAKE_OBJDUMP=/usr/bin/llvm-objdump -DCMAKE_RANLIB=/usr/bin/llvm-ranlib ..
+    cmake --build . --target install
+    cd ..
+    cd ..
+    ls -l td/tdlib
 }
 
 main

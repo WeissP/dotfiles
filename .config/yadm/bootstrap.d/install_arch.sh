@@ -17,7 +17,17 @@ packages=(
     rsync
     alacritty
     cronie
+    thunderbird
+    chromium
 
+    clang
+    cmake
+    gperf
+    php
+
+    unclutter
+    openconnect
+    aria2
     npm
     python-pip
     starship-bin
@@ -41,6 +51,13 @@ packages=(
     hunspell-en_us
 
     postgresql
+    rsnapshot
+    youtube-dl
+    annie
+    docker
+    fcitx-rime
+    xournal
+    mplayer
 )
 
 function main() {

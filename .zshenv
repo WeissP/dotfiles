@@ -20,7 +20,7 @@ export GOPATH=$HOME/go
 export PATH=${GOPATH//://bin:}/bin:$PATH
 
 # QMK
-export QMK_HOME=\"$HOME/weiss/qmk_firmware\"
+export QMK_HOME=$HOME/weiss/qmk_firmware
 
 # ROS
 export ROS_TAG="melodic"

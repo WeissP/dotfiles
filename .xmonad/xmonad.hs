@@ -227,17 +227,21 @@ mySwapMaster = do
     l <- logLayout
     case trimLayoutModifiers l of
         Just "TwoPane" -> windows swapMasterTwoPane
-        _              -> windows W.swapMaster
+        _              -> windows $ W.modify' swapBetweenMasterAndSlave
   where
+    swapBetweenMasterAndSlave :: W.Stack a -> W.Stack a
+    swapBetweenMasterAndSlave stack = case stack of
+        W.Stack f [] [] -> stack
+        W.Stack f [] ds -> W.Stack (last ds) [] (f : init ds)
+        W.Stack t ls rs -> W.Stack t [] (xs ++ x : rs)
+            where (x : xs) = reverse ls
     swapMasterTwoPane :: W.StackSet i l a s sd -> W.StackSet i l a s sd
     swapMasterTwoPane = W.modify' $ \stack -> case stack of
-        W.Stack r2 (l : r1 : up) down             -> W.Stack r1 [r2] (l : down)
-        W.Stack r1 (l      : up) (r2      : down) -> W.Stack r2 [r1] (l : down)
+        W.Stack r2 (l : r1 : up) down -> W.Stack r1 [r2] (l : down)
+        W.Stack r1 (l : up) (r2 : down) -> W.Stack r2 [r1] (l : down)
         W.Stack l [] (r1 : r2 : down) -> W.Stack l [] (r2 : r1 : down)
-        -- the last two conditions are original swapMaster
-        W.Stack _  []            _                -> stack    -- already master.
-        W.Stack t  ls            rs               -> W.Stack t [] (xs ++ x : rs)
-            where (x : xs) = reverse ls
+        _ -> swapBetweenMasterAndSlave stack
+
 
 
 

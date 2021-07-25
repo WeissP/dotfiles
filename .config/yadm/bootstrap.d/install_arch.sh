@@ -80,6 +80,7 @@ function main() {
 
     sudo systemctl start sshd
     # sudo systemctl enable --now networkmanager
+    sudo systemctl enable --now cronie
     chsh -s $(which zsh)
     cat $MYUSERDIR/weiss/crontab-jobs | crontab -
 }

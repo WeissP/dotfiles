@@ -69,8 +69,9 @@ alias fdr="cd / && sudo fd "
 alias dt="dotnet test"
 alias wl="cd ~/Downloads && wget -c --no-check-certificate --limit-rate=1300k"
 alias wnl="cd ~/Downloads && wget -c --no-check-certificate"
-alias ec="emacsclient"
+alias ec="emacsclient --create-frame --alternate-editor=\"\""
 alias ed="emacs --dump-file='/home/weiss/.emacs.d/emacs.pdmp' &"
+alias emdbg="emacs --debug-init &"
 alias edmake="emacs --batch -q -l ~/.emacs.d/dump.el"
 alias ydl='read link && cd ~/Downloads && youtube-dl -r 1500k $link'
 alias ydla='read link && cd ~/Downloads && youtube-dl -x $link' #only audio
@@ -88,6 +89,7 @@ alias qmkf="cd /home/weiss/qmk_firmware/keyboards && qmk flash -kb handwired/dac
 alias ka="killall -9 "
 alias scp="scrcpy -S &"
 alias setup="/home/weiss/weiss/setup.sh"
+
 setxkbmap de
 mouse.sh
 

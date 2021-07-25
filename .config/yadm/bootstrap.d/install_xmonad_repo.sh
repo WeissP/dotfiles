@@ -12,6 +12,7 @@ packages=(
     lightdm-gtk-greeter
     xmonad
     xmonad-contrib
+    xmobar
     dmenu
     picom
     nitrogen

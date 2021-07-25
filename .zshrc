@@ -86,7 +86,8 @@ alias control="cd /home/weiss/KaRat/Docker/karat-ros-docker/ &&  sh run_karat_co
 alias qmkc="cd /home/weiss/qmk_firmware/keyboards && qmk compile -kb handwired/dactyl_manuform/6x6 -km weiss"
 alias qmkf="cd /home/weiss/qmk_firmware/keyboards && qmk flash -kb handwired/dactyl_manuform/6x6 -km weiss"
 alias ka="killall -9 "
-
+alias scp="scrcpy -S &"
+alias setup="/home/weiss/weiss/setup.sh"
 setxkbmap de
 mouse.sh
 

@@ -25,7 +25,7 @@ packages=(
     gperf
     php
 
-    unclutter
+    unclutter-xfixes-git
     openconnect
     aria2
     npm
@@ -45,6 +45,7 @@ packages=(
     wqy-zenhei
     ttf-jetbrains-mono
     nerd-fonts-fira-code
+    nerd-fonts-mononoki
 
     hunspell
     hunspell-de
@@ -55,9 +56,21 @@ packages=(
     youtube-dl
     annie
     docker
-    fcitx-rime
     xournal
     mplayer
+    xautomation
+    xbindkeys
+
+    pulseaudio
+    pavucontrol
+    alsa-utils
+    libappindicator-gtk3
+    blueman
+    networkmanager-iwd
+    network-manager-applet
+    trayer-srg
+    gpick
+    feh
 )
 
 function main() {
@@ -66,6 +79,7 @@ function main() {
     install
 
     sudo systemctl start sshd
+    # sudo systemctl enable --now networkmanager
     chsh -s $(which zsh)
     cat $MYUSERDIR/weiss/crontab-jobs | crontab -
 }

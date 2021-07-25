@@ -13,7 +13,7 @@ packages=(
 function main() {
     sudo pacman -Syyu
 
-    yay -S --noconfirm rsync
+    yay -S --noconfirm rsync fcitx-rime
     sudo rsync -aArXvIP $MYUSERDIR/.config/system-level-dotfiles/* /
 
     check

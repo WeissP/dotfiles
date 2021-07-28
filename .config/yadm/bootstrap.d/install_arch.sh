@@ -18,7 +18,8 @@ packages=(
     alacritty
     cronie
     thunderbird
-    chromium
+    # chromium
+    sdcv
 
     clang
     cmake
@@ -37,6 +38,7 @@ packages=(
     babashka
 
     # Fonts
+    oft-symbola
     adobe-source-code-pro-fonts
     powerline-fonts
     wqy-bitmapfont
@@ -71,6 +73,17 @@ packages=(
     trayer-srg
     gpick
     feh
+
+    update-grub
+    hibernator
+
+    nyxt
+    gst-libav
+    gst-plugins-bad
+    gst-plugins-base
+    gst-plugins-good
+    gst-plugins-ugly
+    xclip
 )
 
 function main() {

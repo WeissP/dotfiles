@@ -13,5 +13,3 @@ b:6
 "xte 'keydown Control_L' 'key v' 'keyup Control_L'"
 b:7
 
-"python /home/weiss/Python/emacs-edit/emacs-edit.py"
-XF86Launch5

@@ -2,7 +2,7 @@ Config
   { font = "xft:FiraCode Nerd Font Mono:weight=bold:pixelsize=16",
     bgColor = "#2e3440",
     fgColor = "#d0d0d0",
-    position = Static {xpos = 0, ypos = 1124, width = 2000, height = 24},
+    position = Static {xpos = 500, ypos = 1124, width = 2000, height = 24},
     persistent = True,
     hideOnStart = False,
     allDesktops = False,
@@ -30,12 +30,7 @@ Config
     sepChar = "%",
     alignSep = "}{",
     template =
-      "                       \
-      \                       \
-      \                       \
-      \                       \
-      \    \
-      \<fc=#51afef>%EDFM%</fc>\
+      "<fc=#51afef>%EDFM%</fc>\
       \ <fc=#666666>|</fc>\
       \ <fc=#98be65>%date%</fc>\
       \"

@@ -7,7 +7,7 @@ export XMODIFIERS="@im=fcitx"
 
 xrandr --output DP-2 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output eDP-1 --mode 3000x2000 --pos 500x1080 --scale 0.5x0.5 --rotate left --output DP-1 --off
 
-trayer --monitor 1 --edge top --distancefrom top --distance 39 --SetDockType false --SetPartialStrut false --expand true --width 10 --align left --transparent true --alpha 0 --tint 0x2e3440 --height 24&
+trayer --monitor 1 --edge top --distancefrom top --distance 39 --SetDockType false --SetPartialStrut false --expand true --width 10 --align right --transparent true --alpha 0 --tint 0x2e3440 --height 24&
 
 xmobar -x 1 /home/weiss/.xmonad/xmobar/xmobarrc1.hs &
 xmobar -x 1 /home/weiss/.xmonad/xmobar/xmobarrc2.hs &
@@ -17,7 +17,7 @@ fcitx &
 blueman-applet &
 
 if [ -x /usr/bin/nm-applet ] ; then
-  nm-applet --sm-disable &
+nm-applet --sm-disable &
 fi
 
 adb connect 192.168.8.111:5555 &
@@ -29,6 +29,10 @@ unclutter --exclude-root --ignore-scrolling&
 xbindkeys &
 
 thunderbird &
+spotify &
+emacs --dump-file='/home/weiss/.emacs.d/emacs.pdmp' &
+nyxt &
+google-chrome-stable &
 
 Mouse_ID=$(xinput list | grep "ELECOM ELECOM TrackBall Mouse" | head -n 1 | sed -r 's/.*id=([0-9]+).*/\1/') &
 xinput set-prop ${Mouse_ID} 'libinput Button Scrolling Button' 9 &
@@ -36,3 +40,7 @@ xinput set-prop ${Mouse_ID} "libinput Scroll Method Enabled" 0 0 1 &
 
 mountavfs &
 mouse.sh &
+sleep 15&&python3 /home/weiss/weiss/connect_screen.py &
+
+# "python /home/weiss/Python/emacs-edit/emacs-edit.py"
+# XF86Launch5

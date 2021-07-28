@@ -1,8 +1,10 @@
-
+[Removed Associations]
+video/H264=google-chrome.desktop
 [Default Applications]
+video/H264=mplayer.desktop
+video/unknown=mplayer.desktop
 text/html=google-chrome.desktop
 x-scheme-handler/http=google-chrome.desktop
 x-scheme-handler/https=google-chrome.desktop
 x-scheme-handler/about=google-chrome.desktop
 x-scheme-handler/unknown=google-chrome.desktop
-video/unknown=mplayer

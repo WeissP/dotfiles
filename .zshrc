@@ -89,6 +89,7 @@ alias qmkf="cd /home/weiss/qmk_firmware/keyboards && qmk flash -kb handwired/dac
 alias ka="killall -9 "
 alias scp="scrcpy -S &"
 alias setup="/home/weiss/weiss/setup.sh"
+alias hibernate="sudo systemctl hibernate"
 
 setxkbmap de
 mouse.sh

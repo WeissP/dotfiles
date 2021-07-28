@@ -5,18 +5,24 @@
 import           Data.List
 import qualified Data.Map                      as M
 import           Data.Maybe
+import           Data.Semigroup
 import           System.IO                      ( hPutStrLn )
+import           Text.Regex
 import           XMonad
+import           XMonad.Actions.CycleWS
 import           XMonad.Actions.MouseResize
 import           XMonad.Hooks.DynamicLog
+import           XMonad.Hooks.DynamicProperty
 import           XMonad.Hooks.EwmhDesktops
 import           XMonad.Hooks.ManageDocks
 import           XMonad.Hooks.ManageHelpers
 import           XMonad.Layout.Accordion
+import           XMonad.Layout.BorderResize
 import           XMonad.Layout.DragPane
 import           XMonad.Layout.LayoutBuilder
 import           XMonad.Layout.LayoutModifier
 import           XMonad.Layout.NoBorders
+import           XMonad.Layout.NoFrillsDecoration
 import           XMonad.Layout.PerWorkspace
 import           XMonad.Layout.Spacing
 import           XMonad.Layout.Tabbed
@@ -27,7 +33,8 @@ import qualified XMonad.StackSet               as W
 import           XMonad.Util.EZConfig
 import           XMonad.Util.Loggers
 import           XMonad.Util.NamedScratchpad
-import           XMonad.Util.Run                ( runProcessWithInput
+import           XMonad.Util.Run                ( runInTerm
+                                                , runProcessWithInput
                                                 , safeSpawn
                                                 , spawnPipe
                                                 )
@@ -50,12 +57,45 @@ myModMask = mod4Mask
 myWorkspaces :: [WorkspaceId]
 myWorkspaces =
     zipWith (\i n -> show i ++ n) [1 .. 9 :: Int]
-        $  map (":" ++) ["main", "sub", "fun", "mail", "monitor"]
+        $  map (":" ++) ["main", "sub", "fun", "mail", "NSP"]
         ++ repeat ""
 
 mylogLayout :: Logger
 mylogLayout = withWindowSet $ return . Just . ld
     where ld = description . W.layout . W.workspace . W.current
+
+base03 = "#002b36"
+base02 = "#073642"
+base01 = "#586e75"
+base00 = "#657b83"
+base0 = "#839496"
+base1 = "#93a1a1"
+base2 = "#eee8d5"
+base3 = "#fdf6e3"
+yellow = "#b58900"
+orange = "#cb4b16"
+red = "#dc322f"
+magenta = "#d33682"
+violet = "#6c71c4"
+blue = "#268bd2"
+cyan = "#2aa198"
+green = "#859900"
+
+-- sizes
+gap = 10
+topbar = 10
+border = 0
+prompt = 20
+status = 20
+
+myNormalBorderColor = "#000000"
+myFocusedBorderColor = active
+
+active = blue
+activeWarn = red
+inactive = base02
+focusColor = blue
+unfocusColor = base02
 
 -- Gaps around and between windows
 -- Changes only seem to apply if I log out then in again
@@ -67,16 +107,29 @@ mySpacing = spacingRaw True             -- Only for >1 window
                        (Border 5 5 5 5) -- Size of window gaps
                        True             -- Enable window gaps
 
+topBarTheme = def { inactiveBorderColor = base03
+                  , inactiveColor       = base03
+                  , inactiveTextColor   = base03
+                  , activeBorderColor   = active
+                  , activeColor         = active
+                  , activeTextColor     = active
+                  , urgentBorderColor   = red
+                  , urgentTextColor     = yellow
+                  , decoHeight          = topbar
+                  }
+
+
 myLayout =
     avoidStruts
         $   mySpacing
         $   smartBorders
         $   mouseResize
         $   windowArrange
-        $   onWorkspace (getWorkspace 1) twoPane
+        $   onWorkspace (getWorkspace 1) (twoPane ||| myTall)
         $   onWorkspace (getWorkspace 2) (Mirror myTall) myTall
         ||| Mirror myTall
   where
+    -- addTopBar = noFrillsDeco shrinkText topBarTheme
     twoPane = TwoPane delta ratio
     myTall  = Tall nmaster delta ratio
     nmaster = 1
@@ -88,8 +141,9 @@ myKeys =
       , spawn
           "rofi -run-list-command \". /home/weiss/weiss/zsh_aliases.sh\" -run-command \"/bin/zsh -i -c '{cmd}'\" -show run"
       )
-        , ("<F6>" , spawn myTerminal)
-        , ("<F11>", withFocused toggleFloat)
+        , ("<XF86Launch5>", nextScreen)
+        , ("<F6>", namedScratchpadAction myScratchPads "tmux")
+        , ("<F11>"        , withFocused toggleFloat)
         , ( "M-3"
           , spawn
               "if type xmonad; then xmonad --recompile && xmonad --restart; else xmessage xmonad not in \\$PATH: \"$PATH\"; fi"
@@ -98,13 +152,13 @@ myKeys =
         , ("M-<Escape>"   , kill)
         , ("M-1"          , myFocusUp)
         , ("M-2"          , myFocusDown)
-        -- , ("M-4"          , myTest)
+        , ("M-4", runInTerm "" "/home/weiss/weiss/tmux-init.sh")
         ]
         ++ [ (keyPrefix ++ " " ++ k, fun i)
            | (k, i) <- zip ["m", ",", ".", "j", "k", "l", "u", "i", "o"]
                            myWorkspaces
            , (keyPrefix, fun) <-
-               [ ("<XF86Launch7>"         , switchOrFocus)
+               [ ("<XF86Launch7>"         , windows . W.greedyView)
                , ("<XF86Launch7> <Space>" , shiftThenSwitchOrFocus)
                , ("<XF86Launch7> <Escape>", windows . W.shift)
                ]
@@ -120,19 +174,43 @@ myKeys =
                ]
            ]
 
-myManageHook :: ManageHook
-myManageHook = composeAll $ concat
-    [ [isDialog --> doFloat]
-    , [ className =? x --> doIgnore | x <- myIgnoreClass ]
-    , [ className =? x --> doHideIgnore | x <- myHideIgnoreClass ]
-    , [ className =? x --> doCenterFloat | x <- myCenterFloatClass ]
-    , [ className =? x --> doFullFloat | x <- myFullFloatClass ]
+myScratchPads =
+    [ NS "tmux"
+         (myTerminal ++ " -e /home/weiss/weiss/tmux-init.sh")
+         (title =? "tmux-Scratchpad")
+         (customFloating $ W.RationalRect (1 / 6) (1 / 6) (2 / 3) (2 / 3))
     ]
+
+myManageHook :: ManageHook
+myManageHook = namedScratchpadManageHook myScratchPads <+> composeAll
+    (concat
+        [ [isDialog --> doFloat]
+        , [className =? "Thunderbird" --> doShift (getWorkspace 4)]
+        , [className =? "Google-chrome" --> doShift (getWorkspace 3)]
+                -- , [className =? "Spotify" --> doShift (getWorkspace 2)]
+        , [ className =? x --> doIgnore | x <- myIgnoreClass ]
+        , [ className =? x --> doHideIgnore | x <- myHideIgnoreClass ]
+        , [ className =? x --> doCenterFloat | x <- myCenterFloatClass ]
+        , [ title =? x --> doCenterFloat | x <- myCenterFloatTitle ]
+        , [ title *=? x --> doCenterFloat | x <- myCenterFloatTitleReg ]
+        , [ className =? x --> doFullFloat | x <- myFullFloatClass ]
+        ]
+    )
+        -- <+> namedScratchpadManageHook myScratchPads
   where
-    myIgnoreClass      = ["trayer"]
-    myHideIgnoreClass  = ["Blueman-applet"]
-    myCenterFloatClass = ["Blueman-manager"]
-    myFullFloatClass   = ["MPlayer"]
+    (*=?) :: Functor f => f String -> String -> f Bool
+    q *=? x =
+        let matchReg = \a b -> isJust $ matchRegex (mkRegex a) b
+        in  fmap (matchReg x) q
+    myIgnoreClass         = ["trayer"]
+    myHideIgnoreClass     = ["Blueman-applet"]
+    myCenterFloatClass    = ["Blueman-manager", "zoom"]
+    myCenterFloatTitle    = ["tmux-Scratchpad"]
+    myCenterFloatTitleReg = []
+    myFullFloatClass      = ["MPlayer"]
+    netName               = stringProperty "_NET_WM_NAME"
+
+
 
 myLogHook xmprocs =
     dynamicLogWithPP $ namedScratchpadFilterOutWorkspacePP $ xmobarPP
@@ -155,6 +233,14 @@ myLogHook xmprocs =
     red      = xmobarColor "#ff5555" ""
     lowWhite = xmobarColor "#bbbbbb" ""
 
+myHandleEventHook :: Event -> X All
+myHandleEventHook =
+    dynamicPropertyChange "WM_NAME" (title =? "tmux-Scratchpad" --> floating)
+        <+> fullscreenEventHook
+  where
+    floating =
+        customFloating $ W.RationalRect (26 / 50) (1 / 8) (9 / 20) (1 / 2)
+
 myConfig xmprocs =
     def { modMask            = myModMask
         , terminal           = myTerminal
@@ -166,7 +252,7 @@ myConfig xmprocs =
         , normalBorderColor  = myNormColor
         , focusedBorderColor = myFocusColor
         , logHook            = myLogHook xmprocs
-        , handleEventHook    = handleEventHook def <+> fullscreenEventHook
+        , handleEventHook    = myHandleEventHook
         }
         -- `removeKeysP` ["M-4"]
         `additionalKeysP` myKeys
@@ -202,8 +288,9 @@ myFocusDown = do
   where
     focusDownTwoPane :: W.StackSet i l a s sd -> W.StackSet i l a s sd
     focusDownTwoPane = W.modify' $ \stack -> case stack of
-        W.Stack r2 (l : r1 : up) down -> W.Stack r1 [l] (r1 : down)
-        W.Stack r1 (l : up) (r2 : down) -> W.Stack r2 [l] (r1 : down)
+        -- W.Stack r2 (l : r1 : up) [] -> W.Stack r1 [l] r2: [up] 
+        -- W.Stack r2 (l : r1 : up) (r3:down) -> W.Stack r3 [l] (r1 : down)
+        W.Stack r1 (l : up) (r2 : down) -> W.Stack r2 [l] (r1 : up ++ down)
         W.Stack l [] (r1 : r2 : down) -> W.Stack r1 [l] (r2 : down)
         _ -> W.focusDown' stack
 
@@ -217,7 +304,7 @@ myFocusUp = do
   where
     focusUpTwoPane :: W.StackSet i l a s sd -> W.StackSet i l a s sd
     focusUpTwoPane = W.modify' $ \stack -> case stack of
-        W.Stack r2 (l : r1 : up) down -> W.Stack l [] (r2 : r1 : down)
+        -- W.Stack r2 (l : r1 : up) down -> W.Stack l [] (r2 : r1 : down)
         W.Stack r1 (l : up) (r2 : down) -> W.Stack l [] (r1 : r2 : down)
         W.Stack l [] (r1 : r2 : down) -> W.Stack r2 [l] (r1 : down)
         _ -> W.focusUp' stack
@@ -269,3 +356,4 @@ shiftThenSwitchOrFocus i = do
 
 getWorkspace :: Int -> String
 getWorkspace i = myWorkspaces !! (i - 1)
+

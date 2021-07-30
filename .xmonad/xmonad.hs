@@ -2,6 +2,7 @@
 {-# LANGUAGE RankNTypes #-}
 {-# LANGUAGE KindSignatures #-}
 
+-- import MyPromptPass
 import           Data.List
 import qualified Data.Map                      as M
 import           Data.Maybe
@@ -29,10 +30,18 @@ import           XMonad.Layout.Tabbed
 import           XMonad.Layout.TwoPane
 import           XMonad.Layout.WindowArranger
 import           XMonad.Layout.WindowNavigation
+import           XMonad.Prompt                  ( XPConfig(..)
+                                                , XPPosition(..)
+                                                , font
+                                                , height
+                                                , position
+                                                )
+-- import           XMonad.Prompt.Pass
 import qualified XMonad.StackSet               as W
 import           XMonad.Util.EZConfig
 import           XMonad.Util.Loggers
 import           XMonad.Util.NamedScratchpad
+import           XMonad.Util.Paste
 import           XMonad.Util.Run                ( runInTerm
                                                 , runProcessWithInput
                                                 , safeSpawn
@@ -64,39 +73,6 @@ mylogLayout :: Logger
 mylogLayout = withWindowSet $ return . Just . ld
     where ld = description . W.layout . W.workspace . W.current
 
-base03 = "#002b36"
-base02 = "#073642"
-base01 = "#586e75"
-base00 = "#657b83"
-base0 = "#839496"
-base1 = "#93a1a1"
-base2 = "#eee8d5"
-base3 = "#fdf6e3"
-yellow = "#b58900"
-orange = "#cb4b16"
-red = "#dc322f"
-magenta = "#d33682"
-violet = "#6c71c4"
-blue = "#268bd2"
-cyan = "#2aa198"
-green = "#859900"
-
--- sizes
-gap = 10
-topbar = 10
-border = 0
-prompt = 20
-status = 20
-
-myNormalBorderColor = "#000000"
-myFocusedBorderColor = active
-
-active = blue
-activeWarn = red
-inactive = base02
-focusColor = blue
-unfocusColor = base02
-
 -- Gaps around and between windows
 -- Changes only seem to apply if I log out then in again
 -- Dimensions are given as (Border top bottom right left)
@@ -107,17 +83,12 @@ mySpacing = spacingRaw True             -- Only for >1 window
                        (Border 5 5 5 5) -- Size of window gaps
                        True             -- Enable window gaps
 
-topBarTheme = def { inactiveBorderColor = base03
-                  , inactiveColor       = base03
-                  , inactiveTextColor   = base03
-                  , activeBorderColor   = active
-                  , activeColor         = active
-                  , activeTextColor     = active
-                  , urgentBorderColor   = red
-                  , urgentTextColor     = yellow
-                  , decoHeight          = topbar
-                  }
-
+myXPConfig :: XPConfig
+myXPConfig = def { position     = Top
+                 , font         = "xft:DejaVu Sans:size=9"
+                 , height       = 40
+                 , autoComplete = Just 0
+                 }
 
 myLayout =
     avoidStruts
@@ -152,7 +123,9 @@ myKeys =
         , ("M-<Escape>"   , kill)
         , ("M-1"          , myFocusUp)
         , ("M-2"          , myFocusDown)
-        , ("M-4", runInTerm "" "/home/weiss/weiss/tmux-init.sh")
+        -- , ("C-v"          , unGrab *> spawn "xdotool ")
+        , ("M-4"          , moveFloat $ namedScratchpadAction myScratchPads "tmux")
+        -- , ("M-4"          , unGrab *> spawn "/home/weiss/test.sh")
         ]
         ++ [ (keyPrefix ++ " " ++ k, fun i)
            | (k, i) <- zip ["m", ",", ".", "j", "k", "l", "u", "i", "o"]
@@ -167,6 +140,7 @@ myKeys =
            | (key, fun) <-
                [ ("n"      , withFocused $ windows . W.sink)
                , ("t"      , sendMessage NextLayout)
+               , ("p"      , spawn "rofi-pass")
                , ("<Left>" , sendMessage $ Move L)
                , ("<Right>", sendMessage $ Move R)
                , ("<Up>"   , sendMessage $ Move U)
@@ -187,7 +161,7 @@ myManageHook = namedScratchpadManageHook myScratchPads <+> composeAll
         [ [isDialog --> doFloat]
         , [className =? "Thunderbird" --> doShift (getWorkspace 4)]
         , [className =? "Google-chrome" --> doShift (getWorkspace 3)]
-                -- , [className =? "Spotify" --> doShift (getWorkspace 2)]
+        , [className =? "Spotify" --> doShift (getWorkspace 2)]
         , [ className =? x --> doIgnore | x <- myIgnoreClass ]
         , [ className =? x --> doHideIgnore | x <- myHideIgnoreClass ]
         , [ className =? x --> doCenterFloat | x <- myCenterFloatClass ]
@@ -196,7 +170,6 @@ myManageHook = namedScratchpadManageHook myScratchPads <+> composeAll
         , [ className =? x --> doFullFloat | x <- myFullFloatClass ]
         ]
     )
-        -- <+> namedScratchpadManageHook myScratchPads
   where
     (*=?) :: Functor f => f String -> String -> f Bool
     q *=? x =
@@ -238,13 +211,17 @@ myHandleEventHook =
     dynamicPropertyChange "WM_NAME" (title =? "tmux-Scratchpad" --> floating)
         <+> fullscreenEventHook
   where
-    floating =
+    floating = do
+        -- ms <- withFocused isMaster
         customFloating $ W.RationalRect (26 / 50) (1 / 8) (9 / 20) (1 / 2)
+
+-- myStartupHook = do
+    -- namedScratchpadAction myScratchPads "tmux"
 
 myConfig xmprocs =
     def { modMask            = myModMask
         , terminal           = myTerminal
-      -- , startupHook        = myStartupHook
+        -- , startupHook        = myStartupHook
         , manageHook         = myManageHook
         , workspaces         = myWorkspaces
         , borderWidth        = myBorderWidth
@@ -268,6 +245,14 @@ isMaster :: W.StackSet i l a s sd -> Bool
 isMaster ss = case W.stack . W.workspace . W.current $ ss of
     Just (W.Stack _ [] _) -> True
     _                     -> False
+
+logMaster :: X Bool
+logMaster = withWindowSet isMaster  where
+    isMaster ss = return $ case W.stack . W.workspace . W.current $ ss of
+        Just (W.Stack _ [] _) -> True
+        _                     -> False
+withWindowffSet :: forall a . (WindowSet -> X a) -> X a
+withWindowffSet = withWindowSet
 
 trimPrefixWithList :: [String] -> Maybe String -> Maybe String
 trimPrefixWithList _  Nothing  = Nothing
@@ -357,3 +342,13 @@ shiftThenSwitchOrFocus i = do
 getWorkspace :: Int -> String
 getWorkspace i = myWorkspaces !! (i - 1)
 
+moveFloat :: X () -> X ()
+moveFloat f = do
+  m <- logMaster
+  l <- logLayout
+  f
+  case (m,f) of
+    (True, _) -> withFocused (`tileWindow` Rectangle 50 50 200 200)
+    _ -> withFocused (`tileWindow` Rectangle 50 50 500 500)
+
+-- ttt :: NS

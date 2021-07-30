@@ -40,7 +40,6 @@ xinput set-prop ${Mouse_ID} "libinput Scroll Method Enabled" 0 0 1 &
 
 mountavfs &
 mouse.sh &
-sleep 15&&python3 /home/weiss/weiss/connect_screen.py &
 
 # "python /home/weiss/Python/emacs-edit/emacs-edit.py"
 # XF86Launch5

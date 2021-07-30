@@ -57,6 +57,8 @@
     "N" 'nyxt/web-mode:search-buffers
     "!" 'nyxt/web-mode:focus-first-input-field
     "s" 'nyxt/web-mode:follow-hint
+    "p n" 'save-new-password
+    "p c" 'copy-password
     "space f" 'execute-command
     "space d" 'delete-buffer
     "space r" 'load-init-file

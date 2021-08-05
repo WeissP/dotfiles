@@ -1,3 +1,5 @@
+(require "asdf")
+
 (in-package #:nyxt/visual-mode)
 (define-command copy-and-exit ()
   (nyxt/web-mode:copy)
@@ -33,6 +35,11 @@
          (scroll-page-up)))
 
 
+(define-command roam-save-link()
+  ;; (copy-to-clipboard (format nil "xdg-open 'org-protocol://roam-ref?template=r&ref=~S&title=~S'" (render-url (url (current-buffer))) (title (current-buffer))))
+  (uiop:run-program (format nil "xdg-open 'org-protocol://roam-ref?template=r&ref=~S&title=~S'" (render-url (url (current-buffer))) (title (current-buffer))))  
+  )
+
 (defvar *my-global-keymap* (make-keymap "*my-global-keymap*"))
 (define-key *my-global-keymap*
     "C-s-isolefttab" 'switch-buffer-previous
@@ -62,9 +69,11 @@
     "space f" 'execute-command
     "space d" 'delete-buffer
     "space r" 'load-init-file
+    "space s" 'roam-save-link
     "r" 'reopen-last-buffer
     "x" 'delete-current-buffer
     "escape" 'nyxt/prompt-buffer-mode:cancel-input
+    "y t" 'copy-title
     )
 
 (defvar *my-insert-mode-keymap* (make-keymap "*my-insert-mode-keymap*"))

@@ -95,3 +95,5 @@ setxkbmap de
 mouse.sh
 
 eval "$(starship init zsh)"
+#[ -f "/home/weiss/.ghcup/env" ] && source "/home/weiss/.ghcup/env" # ghcup-env
+[ -f "/home/weiss/.ghcup/env" ] && source "/home/weiss/.ghcup/env" # ghcup-env

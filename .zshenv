@@ -11,7 +11,9 @@ export PATH=/usr/local/texlive/2020/bin/x86_64-linux:$PATH
 export PATH=/usr/lib/jvm/java-11-openjdk/bin/:$PATH
 
 # Haskell
-export PATH=HOME/.cabal/bin:$HOME/.ghcup/bin:$PATH
+export PATH=HOME/.cabal/bin:$HOME/.local/bin:$PATH
+# export XMONAD_CONFIG_DIR=$HOME/.config/xmonad-project
+# export XMONAD_DATA_DIR=$HOME/.config/xmonad-project
 
 # Golang
 export GO111MODULE=auto
@@ -25,3 +27,6 @@ export QMK_HOME=$HOME/weiss/qmk_firmware
 # ROS
 export ROS_TAG="melodic"
 export KARAT_ROS_TAG="melodic"
+
+# hledger
+export LEDGER_FILE=$HOME/finance/2021.journal

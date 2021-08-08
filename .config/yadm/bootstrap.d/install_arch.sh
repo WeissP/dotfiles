@@ -36,6 +36,7 @@ packages=(
 
     clojure
     babashka
+    clojure-kondo-bin
 
     # Fonts
     oft-symbola
@@ -73,6 +74,7 @@ packages=(
     trayer-srg
     gpick
     feh
+    coreimage
 
     update-grub
     hibernator

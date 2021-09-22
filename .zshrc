@@ -39,8 +39,9 @@ zinit wait lucid for \
 
 zinit wait lucid for \
       zsh-users/zsh-history-substring-search \
-      zsh-users/zsh-autosuggestions \
       hlissner/zsh-autopair
+
+zinit light zsh-users/zsh-autosuggestions 
 
 # Completion enhancements
 zinit ice wait lucid atload"zicompinit; zicdreplay" blockf

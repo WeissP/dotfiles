@@ -54,6 +54,11 @@ zinit light sei40kr/fast-alias-tips-bin
 zinit ice wait lucid depth"1"
 zinit light sei40kr/zsh-fast-alias-tips
 
+zinit ice as"completion"
+zinit snippet https://github.com/docker/cli/blob/master/contrib/completion/zsh/_docker
+zinit ice as"completion"
+zinit snippet https://github.com/docker/compose/tree/master/contrib/completion/zsh/_docker-compose
+
 gen-tags() {
     read ctagslang'?langs:'
     ctags --languages=$ctagslang --kinds-all='*' --fields='*' --extras='*' -R
@@ -87,13 +92,13 @@ alias control="cd /home/weiss/KaRat/Docker/karat-ros-docker/ &&  sh run_karat_co
 alias qmkc="cd /home/weiss/qmk_firmware/keyboards && qmk compile -kb handwired/dactyl_manuform/6x6 -km weiss"
 alias qmkf="cd /home/weiss/qmk_firmware/keyboards && qmk flash -kb handwired/dactyl_manuform/6x6 -km weiss"
 alias ka="killall -9 "
-alias scp="scrcpy -S &"
+alias scp="adb connect 192.168.8.122:5555 && scrcpy -S &"
 alias setup="/home/weiss/weiss/setup.sh"
 alias hibernate="sudo systemctl hibernate"
+alias hh="cd /home/weiss/clojure/hledger-helper/ && lein run"
 
 setxkbmap de
 mouse.sh
 
 eval "$(starship init zsh)"
-#[ -f "/home/weiss/.ghcup/env" ] && source "/home/weiss/.ghcup/env" # ghcup-env
 [ -f "/home/weiss/.ghcup/env" ] && source "/home/weiss/.ghcup/env" # ghcup-env

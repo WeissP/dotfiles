@@ -11,9 +11,11 @@ packages=(
     zsh
     neofetch                    # screenfetch
     bat
+    p7zip
     fd
     fzf
     ripgrep
+    ripgrep-all
     rsync
     alacritty
     cronie
@@ -56,6 +58,7 @@ packages=(
 
     postgresql
     rsnapshot
+    timeshift
     youtube-dl
     annie
     docker
@@ -74,7 +77,7 @@ packages=(
     trayer-srg
     gpick
     feh
-    coreimage
+    qimgv
 
     update-grub
     hibernator
@@ -86,6 +89,8 @@ packages=(
     gst-plugins-good
     gst-plugins-ugly
     xclip
+
+    texlive-most
 )
 
 function main() {

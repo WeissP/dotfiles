@@ -34,10 +34,10 @@ fi
 
 twm &
 xclock -geometry 50x50-1+1 &
-# exec xterm -geometry 80x66+0+0 -name login &
 
 setxkbmap de &
 xset r rate 230 30 & 
+xset -dpms &
 
 export GTK_IM_MODULE=fcitx 
 export QT_IM_MODULE=fcitx
@@ -52,13 +52,14 @@ xmobar -x 1 /home/weiss/.config/xmobar/xmobarrc2.hs &
 
 fcitx &
 
+# sudo modprobe bluetooth &
 blueman-applet &
 
 if [ -x /usr/bin/nm-applet ] ; then
     nm-applet --sm-disable &
 fi
 
-adb connect 192.168.8.111:5555 &
+adb connect 192.168.8.121:5555 &
 # # scrcpy -S &
 
 feh --bg-fill --no-fehbg "/home/weiss/Pictures/background/bricks-459299_1920.jpg" &
@@ -75,6 +76,11 @@ google-chrome-stable &
 Mouse_ID=$(xinput list | grep "ELECOM ELECOM TrackBall Mouse" | head -n 1 | sed -r 's/.*id=([0-9]+).*/\1/') &
 xinput set-prop ${Mouse_ID} 'libinput Button Scrolling Button' 9 &
 xinput set-prop ${Mouse_ID} "libinput Scroll Method Enabled" 0 0 1 &
+
+syncthing &
+
+# for scrcpy
+adb tcpip 5555
 
 mouse.sh &
 exec xmonad 

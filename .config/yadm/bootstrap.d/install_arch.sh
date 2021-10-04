@@ -91,6 +91,7 @@ packages=(
     xclip
 
     texlive-most
+    texlive-langchinese
 )
 
 function main() {

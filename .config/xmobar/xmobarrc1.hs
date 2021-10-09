@@ -35,7 +35,9 @@ Config
     sepChar = "%",
     alignSep = "}{",
     template =
-      "<fc=#ecbe7b>%cpu%</fc> \
+      " <fc=#98be65>%date%</fc>\
+      \ <fc=#666666>|</fc>\
+      \ <fc=#ecbe7b>%cpu%</fc> \
       \ <fc=#ecbe7b>%memory%</fc>\
       \ <fc=#666666>|</fc>\
       \ <fc=#51afef>%disku%</fc>\
@@ -44,7 +46,5 @@ Config
       \ <fc=#98be65>%wlan0%</fc>\
       \ <fc=#666666>|</fc>\
       \ <fc=#51afef>%EDFM%</fc>\
-      \ }{\
-      \ <fc=#98be65>%date%</fc>\
       \"
   }

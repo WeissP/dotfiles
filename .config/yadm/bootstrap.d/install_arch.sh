@@ -82,14 +82,6 @@ packages=(
     update-grub
     hibernator
 
-    nyxt
-    gst-libav
-    gst-plugins-bad
-    gst-plugins-base
-    gst-plugins-good
-    gst-plugins-ugly
-    xclip
-
     texlive-most
     texlive-langchinese
 )

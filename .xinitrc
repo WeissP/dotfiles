@@ -43,7 +43,13 @@ export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS="@im=fcitx"
 
-xrandr --output DP-2 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output eDP-1 --mode 3000x2000 --pos 500x1080 --scale 0.5x0.5 --rotate left --output DP-1 --off
+# --scale 0.75x0.75
+# xrandr --output DP-2 --off --output eDP-1 --off --output DP-1 --primary --mode 2560x1440 --pos 0x0 --rotate normal 
+
+# xrandr --output DP-2 --off --output eDP-1 --mode 1920x1200 --pos 709x1440 --rotate left --output DP-1 --primary --mode 2560x1440 --pos 0x0 --rotate normal
+
+xrandr --output DP-2 --mode 1920x1080 --pos 1440x435 --rotate normal --output eDP-1 --off --output DP-1 --primary --mode 2560x1440 --pos 0x0 --rotate left
+# xrandr --output DP-2 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output eDP-1 --mode 3000x2000 --pos 500x1080 --scale 0.5x0.5 --rotate left --output DP-1 --off
 
 trayer --monitor 1 --edge top --distancefrom top --distance 46 --SetDockType false --SetPartialStrut false --expand true --width 20 --align right --transparent true --alpha 0 --tint 0x2e3440 --height 24&
 

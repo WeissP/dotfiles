@@ -63,6 +63,7 @@ packages=(
     annie
     docker
     xournal
+    syncthing
     mplayer
     xautomation
     xbindkeys

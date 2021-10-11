@@ -1,5 +1,7 @@
 Config
-  { font = "xft:FiraCode Nerd Font Mono:weight=bold:pixelsize=16",
+  {
+    font = "xft: Source Han Sans CN:weight=bold:pixelsize=17",
+    additionalFonts = ["xft: symbola:weight=bold:pixelsize=24", "xft:FiraCode Nerd Font Mono:weight=bold:pixelsize=16"],
     bgColor = "#2e3440",
     fgColor = "#d0d0d0",
 
@@ -30,14 +32,12 @@ Config
             "red"
           ]
           36000,
-        Run Date "%a %e.%m.%Y %H:%M " "date" 50
+        Run XPropertyLog "_XMONAD_LOG_Hori"
       ],
     sepChar = "%",
     alignSep = "}{",
     template =
-      " <fc=#98be65>%date%</fc>\
-      \ <fc=#666666>|</fc>\
-      \ <fc=#ecbe7b>%cpu%</fc> \
+      " <fc=#ecbe7b>%cpu%</fc> \
       \ <fc=#ecbe7b>%memory%</fc>\
       \ <fc=#666666>|</fc>\
       \ <fc=#51afef>%disku%</fc>\
@@ -45,6 +45,6 @@ Config
       \ <fc=#98be65>%wlan0wi%</fc>\
       \ <fc=#98be65>%wlan0%</fc>\
       \ <fc=#666666>|</fc>\
-      \ <fc=#51afef>%EDFM%</fc>\
+      \ %_XMONAD_LOG_Hori% \
       \"
   }

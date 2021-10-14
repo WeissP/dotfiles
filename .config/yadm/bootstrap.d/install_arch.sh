@@ -20,7 +20,11 @@ packages=(
     alacritty
     cronie
     thunderbird
-    # chromium
+    chromium
+    google-chrome
+    flameshot
+    spotify
+    pass
     sdcv
 
     clang
@@ -81,9 +85,10 @@ packages=(
     gpick
     feh
     qimgv
+    arandr
+    udisk2
 
     update-grub
-    # hibernator
 
     texlive-most
     texlive-langchinese

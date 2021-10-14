@@ -43,7 +43,7 @@ export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS="@im=fcitx"
 
-# sh /home/weiss/.screenlayout/vertical.sh &
+sh /home/weiss/.screenlayout/vertical.sh &
 
 trayer --monitor 0 --edge top --distancefrom top --SetDockType false --SetPartialStrut false --expand true --width 20 --align right --transparent true --alpha 0 --tint 0x2e3440 --height 24&
 
@@ -58,7 +58,7 @@ if [ -x /usr/bin/nm-applet ] ; then
     nm-applet --sm-disable &
 fi
 
-adb connect 192.168.8.121:5555 &
+# adb connect 192.168.8.121:5555 &
 # # scrcpy -S &
 
 feh --bg-fill --no-fehbg "/home/weiss/Pictures/background/bricks-459299_1920.jpg" &
@@ -80,7 +80,7 @@ syncthing &
 flameshot &
 
 # for scrcpy
-adb tcpip 5555
+# adb tcpip 5555
 
 mouse.sh &
 exec xmonad 

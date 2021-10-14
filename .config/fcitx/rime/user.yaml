@@ -5,4 +5,4 @@ patch:
   "switcher/hotkeys":
     - "Control+Shift+F8"
 var:
-  last_build_time: 1628579082
+  last_build_time: 1634205189

@@ -1,6 +1,6 @@
 Config
   {
-    font = "xft:FiraCode Nerd Font Mono:weight=bold:pixelsize=16",
+    font = "xft:FiraCode Nerd Font Mono:style=bold:pixelsize=16",
     additionalFonts = ["xft: symbola:weight=bold:pixelsize=24", "xft:FiraCode Nerd Font Mono:weight=bold:pixelsize=16" ,"xft: Source Han Sans CN:weight=bold:pixelsize=17"],
     bgColor = "#2e3440",
     fgColor = "#d0d0d0",

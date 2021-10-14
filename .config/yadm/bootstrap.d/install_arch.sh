@@ -6,94 +6,86 @@ source ./common.sh
 
 # Packages
 packages=(
-    git
+    # timeshift
+    adobe-source-code-pro-fonts
+    alacritty
+    alsa-utils
+    annie
+    arandr
+    aria2
     autojump
-    zsh
-    neofetch                    # screenfetch
+    babashka
     bat
-    p7zip
+    blueman
+    chromium
+    clang
+    clojure
+    clojure-kondo-bin
+    cmake
+    cronie
+    docker
+    dua-cli
+    exa
     fd
+    feh
+    flameshot
     fzf
+    git
+    go
+    google-chrome
+    gperf
+    gpick
+    hunspell
+    hunspell-de
+    hunspell-en_us
+    libappindicator-gtk3
+    mplayer
+    neofetch                    # screenfetch
+    nerd-fonts-fira-code
+    nerd-fonts-mononoki
+    network-manager-applet
+    networkmanager-iwd
+    npm
+    oft-symbola
+    openconnect
+    openssh
+    p7zip
+    pass
+    pavucontrol
+    php
+    postgresql
+    powerline-fonts
+    pulseaudio
+    python-pip
+    qimgv
+    redshiftgui-bin
     ripgrep
     ripgrep-all
+    rsnapshot
     rsync
-    alacritty
-    cronie
-    thunderbird
-    chromium
-    google-chrome
-    flameshot
-    spotify
-    pass
     sdcv
-
-    clang
-    cmake
-    gperf
-    php
-
+    spotify
+    symbola
+    syncthing
+    texlive-langchinese
+    texlive-most
+    thunderbird
+    trayer-srg
+    ttf-jetbrains-mono
+    udisk2
     unclutter-xfixes-git
-    openconnect
-    aria2
-    npm
-    python-pip
-    # starship-bin
-    openssh
-
-    clojure
-    babashka
-    clojure-kondo-bin
-
-    go
-
-    # Fonts
-    oft-symbola
-    adobe-source-code-pro-fonts
-    powerline-fonts
+    unzip
+    update-grub
     wqy-bitmapfont
     wqy-microhei
     wqy-microhei-lite
     wqy-zenhei
-    ttf-jetbrains-mono
-    nerd-fonts-fira-code
-    nerd-fonts-mononoki
-
-    hunspell
-    hunspell-de
-    hunspell-en_us
-
-    postgresql
-    rsnapshot
-    # timeshift
-    youtube-dl
-    annie
-    docker
-    xournal
-    syncthing
-    mplayer
     xautomation
     xbindkeys
-
-    pulseaudio
-    pavucontrol
-    alsa-utils
-    libappindicator-gtk3
-    blueman
-    networkmanager-iwd
-    network-manager-applet
-    trayer-srg
-    gpick
-    feh
-    qimgv
-    arandr
-    udisk2
     xdotool
-    unzip
-
-    update-grub
-
-    texlive-most
-    texlive-langchinese
+    xournal
+    youtube-dl
+    zsh
 )
 
 function main() {

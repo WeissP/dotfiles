@@ -104,6 +104,14 @@ function main() {
     sudo systemctl enable --now cronie
     chsh -s $(which zsh)
     cat $MYUSERDIR/weiss/crontab-jobs | crontab -
+
+    mkdir -p $MYUSERDIR/clojure
+    cd $MYUSERDIR/clojure
+    git clone git@github.com:WeissP/hledger-helper.git
+
+    mkdir -p $MYUSERDIR/go/src
+    cd $MYUSERDIR/go/src
+    git clone git@github.com:WeissP/OrgTimer.git
 }
 
 main

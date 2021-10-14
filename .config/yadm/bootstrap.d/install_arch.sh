@@ -8,6 +8,14 @@ source ./common.sh
 packages=(
     # timeshift
     adobe-source-code-pro-fonts
+    adobe-source-han-sans-cn-fonts
+    adobe-source-han-sans-hk-fonts
+    adobe-source-han-sans-jp-fonts
+    adobe-source-han-sans-tw-fonts
+    adobe-source-han-serif-cn-fonts
+    adobe-source-han-serif-hk-fonts
+    adobe-source-han-serif-jp-fonts
+    adobe-source-han-serif-tw-fonts
     alacritty
     alsa-utils
     annie
@@ -114,3 +122,5 @@ function main() {
 }
 
 main
+
+

@@ -1,3 +1,4 @@
 # OSD location
 progbar-align=100
 fstype=none
+heartbeat-cmd="xscreensaver-command -deactivate >&- 2>&- &"

@@ -97,6 +97,7 @@ alias scp="adb connect 192.168.8.129:5555 && scrcpy -S &"
 alias setup="/home/weiss/weiss/setup.sh"
 alias hibernate="sudo systemctl hibernate"
 alias hh="cd /home/weiss/clojure/hledger-helper/ && lein run"
+alias edit="emacsclient -c"
 
 setxkbmap de
 mouse.sh

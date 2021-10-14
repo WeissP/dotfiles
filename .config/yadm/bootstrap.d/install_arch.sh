@@ -37,7 +37,7 @@ packages=(
     aria2
     npm
     python-pip
-    starship-bin
+    # starship-bin
     openssh
 
     clojure
@@ -88,6 +88,7 @@ packages=(
     arandr
     udisk2
     xdotool
+    unzip
 
     update-grub
 
@@ -103,6 +104,8 @@ function main() {
     sudo systemctl start sshd
     # sudo systemctl enable --now networkmanager
     sudo systemctl enable --now cronie
+    sh -c "$(curl -fsSL https://starship.rs/install.sh)"
+
     chsh -s $(which zsh)
     cat $MYUSERDIR/weiss/crontab-jobs | crontab -
 

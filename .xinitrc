@@ -83,4 +83,5 @@ flameshot &
 # adb tcpip 5555
 
 mouse.sh &
+xscreensaver -no-splash &
 exec xmonad 

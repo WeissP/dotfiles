@@ -2,6 +2,8 @@
 export LANG="en_US.UTF-8"
 export TERM=xterm-256color
 export DEFAULT_USER=$USER
+export VISUAL="emacsclient -c"
+export EDITOR="$VISUAL"
 export PATH=$HOME/weiss/:$HOME/bin:$HOME/.local/bin:/usr/local/sbin:$PATH
 
 # texlive

@@ -43,7 +43,7 @@ export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS="@im=fcitx"
 
-sh /home/weiss/.screenlayout/vertical.sh &
+# sh /home/weiss/.screenlayout/vertical.sh &
 
 trayer --monitor 0 --edge top --distancefrom top --SetDockType false --SetPartialStrut false --expand true --width 20 --align right --transparent true --alpha 0 --tint 0x2e3440 --height 24&
 

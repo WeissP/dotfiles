@@ -40,6 +40,8 @@ packages=(
     babashka
     clojure-kondo-bin
 
+    go
+
     # Fonts
     oft-symbola
     adobe-source-code-pro-fonts
@@ -58,7 +60,7 @@ packages=(
 
     postgresql
     rsnapshot
-    timeshift
+    # timeshift
     youtube-dl
     annie
     docker
@@ -81,7 +83,7 @@ packages=(
     qimgv
 
     update-grub
-    hibernator
+    # hibernator
 
     texlive-most
     texlive-langchinese

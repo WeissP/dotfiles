@@ -1,7 +1,7 @@
 Config
   {
-    font = "xft: Source Han Sans CN:weight=bold:pixelsize=17",
-    additionalFonts = ["xft: symbola:weight=bold:pixelsize=24", "xft:FiraCode Nerd Font Mono:weight=bold:pixelsize=16"],
+    font = "xft:FiraCode Nerd Font Mono:weight=bold:pixelsize=16",
+    additionalFonts = ["xft: symbola:weight=bold:pixelsize=24", "xft:FiraCode Nerd Font Mono:weight=bold:pixelsize=16" ,"xft: Source Han Sans CN:weight=bold:pixelsize=17"],
     bgColor = "#2e3440",
     fgColor = "#d0d0d0",
 
@@ -45,6 +45,7 @@ Config
       \ <fc=#98be65>%wlan0wi%</fc>\
       \ <fc=#98be65>%wlan0%</fc>\
       \ <fc=#666666>|</fc>\
-      \ %_XMONAD_LOG_Hori% \
+      \ }{\
+      \ <fn=3>%_XMONAD_LOG_Hori%</fn>\
       \"
   }

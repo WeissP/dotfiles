@@ -87,6 +87,7 @@ packages=(
     qimgv
     arandr
     udisk2
+    xdotool
 
     update-grub
 
@@ -104,6 +105,9 @@ function main() {
     sudo systemctl enable --now cronie
     chsh -s $(which zsh)
     cat $MYUSERDIR/weiss/crontab-jobs | crontab -
+
+    cd $MYUSERDIR/
+    git clone git@github.com:WeissP/.password-store.git
 
     mkdir -p $MYUSERDIR/clojure
     cd $MYUSERDIR/clojure

@@ -58,7 +58,7 @@ if [ -x /usr/bin/nm-applet ] ; then
     nm-applet --sm-disable &
 fi
 
-# adb connect 192.168.8.121:5555 &
+adb connect 192.168.8.130:5555 &
 # # scrcpy -S &
 
 feh --bg-fill --no-fehbg "/home/weiss/Pictures/background/bricks-459299_1920.jpg" &
@@ -80,7 +80,7 @@ syncthing &
 flameshot &
 
 # for scrcpy
-# adb tcpip 5555
+adb tcpip 5555
 
 mouse.sh &
 xscreensaver -no-splash &

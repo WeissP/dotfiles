@@ -18,6 +18,7 @@ packages=(
     adobe-source-han-serif-tw-fonts
     alacritty
     alsa-utils
+    android-tools    
     annie
     arandr
     aria2
@@ -66,11 +67,12 @@ packages=(
     pulseaudio
     python-pip
     qimgv
-    redshiftgui-bin
+    redshift-gtk-git
     ripgrep
     ripgrep-all
     rsnapshot
     rsync
+    scrcpy
     sdcv
     spotify
     symbola

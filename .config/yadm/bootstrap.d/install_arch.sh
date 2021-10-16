@@ -7,6 +7,7 @@ source ./common.sh
 # Packages
 packages=(
     # timeshift
+    # leiningen
     adobe-source-code-pro-fonts
     adobe-source-han-sans-cn-fonts
     adobe-source-han-sans-hk-fonts
@@ -67,7 +68,7 @@ packages=(
     pulseaudio
     python-pip
     qimgv
-    redshift-gtk-git
+    redshift
     ripgrep
     ripgrep-all
     rsnapshot

@@ -12,7 +12,7 @@ video/x-m4v=mplayer.desktop;
 x-scheme-handler/about=chromium.desktop
 x-scheme-handler/http=chromium.desktop
 x-scheme-handler/https=chromium.desktop
-x-scheme-handler/org-protocol=org-protocol.desktop;
+x-scheme-handler/org-protocol=org-protocol.desktop
 x-scheme-handler/unknown=chromium.desktop
 
 [Added Associations]

@@ -25,6 +25,8 @@ packages=(
     aria2
     autojump
     babashka
+    brtbk
+    mbuffer
     bat
     blueman
     chromium
@@ -109,6 +111,7 @@ function main() {
     sudo systemctl start sshd
     # sudo systemctl enable --now networkmanager
     sudo systemctl enable --now cronie
+
     sh -c "$(curl -fsSL https://starship.rs/install.sh)"
 
     chsh -s $(which zsh)

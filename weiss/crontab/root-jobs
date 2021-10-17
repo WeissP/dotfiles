@@ -1,0 +1,2 @@
+*/10 * * * * exec /usr/bin/btrbk -c /home/weiss/.config/btrbk/local.conf -q run
+0 */2 * * * exec /usr/bin/btrbk -c /home/weiss/.config/btrbk/extern.conf -q run

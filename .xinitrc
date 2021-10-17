@@ -54,9 +54,9 @@ fcitx &
 # sudo modprobe bluetooth &
 blueman-applet &
 
-if [ -x /usr/bin/nm-applet ] ; then
-    nm-applet --sm-disable &
-fi
+# if [ -x /usr/bin/nm-applet ] ; then
+#     nm-applet --sm-disable &
+# fi
 
 adb connect 192.168.8.130:5555 &
 # # scrcpy -S &
@@ -78,6 +78,7 @@ xinput set-prop ${Mouse_ID} "libinput Scroll Method Enabled" 0 0 1 &
 
 syncthing &
 flameshot &
+redshiftDual &
 
 # for scrcpy
 adb tcpip 5555

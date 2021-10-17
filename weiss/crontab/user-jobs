@@ -1,6 +1,4 @@
 * * * * * bb /home/weiss/clojure/recentf-db/clean_recentf.clj
 * * * * * env DISPLAY=:0 bb /home/weiss/clojure/scripts/xorg-set-value.clj
 0 12 * * * pg_dump recentf > /home/weiss/clojure/recentf-db/recentf.dmp
-0 13 * * * sudo rsnapshot daily
-0 14 * * 1 sudo rsnapshot weekly
-0 15 1 * * sudo rsnapshot monthly
+

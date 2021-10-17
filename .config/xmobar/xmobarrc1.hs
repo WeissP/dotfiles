@@ -12,7 +12,7 @@ Config
     lowerOnStart = True,
     commands =
       [
-        Run DynNetwork ["-t", "<fn=2>\xf0aa</fn> <tx>kb <fn=2>\xf0ab</fn> <rx>kb", "-m", "4"] 20,
+        Run DynNetwork ["-t", "<fn=2>\xf0aa</fn> <tx>kb  <fn=2>\xf0ab</fn> <rx>kb"] 20,
         Run Cpu ["-t", "CPU:<bar>", "-H", "50", "--high", "red"] 20,
         Run Memory ["-t", "MEM:<usedbar>(<used>M)"] 20,
         Run DiskU [("/", "USED:<used> FREE:<free>")] [] 60,

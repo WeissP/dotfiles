@@ -61,7 +61,7 @@ fi
 adb connect 192.168.8.130:5555 &
 # # scrcpy -S &
 
-feh --bg-fill --no-fehbg "/home/weiss/Pictures/background/bricks-459299_1920.jpg" &
+feh --bg-fill /home/weiss/Pictures/backgroud/vertical/Firewood-Texture-Wooden-Wallpaper-1440x2560.jpg /home/weiss/Pictures/backgroud/horizon/Wood-Wallpapers-33-2560-x-1440.jpg &
 
 unclutter --exclude-root --ignore-scrolling&
 xbindkeys &

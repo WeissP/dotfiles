@@ -97,6 +97,8 @@ packages=(
     xournal
     youtube-dl
     zsh
+    expect
+    aqbanking
 )
 
 function main() {

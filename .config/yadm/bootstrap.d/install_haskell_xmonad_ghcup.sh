@@ -48,6 +48,11 @@ function main() {
     rm -rf $MYUSERDIR/.xmonad
     cd $MYUSERDIR/.config
     git clone --recurse-submodules git@github.com:WeissP/xmonad-project.git    
+
+    cabal update
+    cabal install alex happy
+    cabal install hledger-1.23 hledger-ui-1.23 hledger-web-1.23
+
 }
 
 main

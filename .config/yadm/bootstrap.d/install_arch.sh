@@ -115,7 +115,8 @@ function main() {
     sh -c "$(curl -fsSL https://starship.rs/install.sh)"
 
     chsh -s $(which zsh)
-    cat $MYUSERDIR/weiss/crontab-jobs | crontab -
+    cat $MYUSERDIR/weiss/crontab/user-jobs | crontab -
+    cat $MYUSERDIR/weiss/crontab/root-jobs | sudo crontab -
 
     cd $MYUSERDIR/
     git clone git@github.com:WeissP/.password-store.git

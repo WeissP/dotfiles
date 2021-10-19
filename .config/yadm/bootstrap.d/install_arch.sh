@@ -7,7 +7,7 @@ source ./common.sh
 # Packages
 packages=(
     # timeshift
-    # leiningen
+    leiningen
     adobe-source-code-pro-fonts
     adobe-source-han-sans-cn-fonts
     adobe-source-han-sans-hk-fonts
@@ -21,14 +21,14 @@ packages=(
     alsa-utils
     android-tools    
     annie
+    aqbanking
     arandr
     aria2
     autojump
     babashka
-    brtbk
-    mbuffer
     bat
     blueman
+    brtbk
     chromium
     clang
     clojure
@@ -38,6 +38,7 @@ packages=(
     docker
     dua-cli
     exa
+    expect
     fd
     feh
     flameshot
@@ -51,6 +52,7 @@ packages=(
     hunspell-de
     hunspell-en_us
     libappindicator-gtk3
+    mbuffer
     mplayer
     neofetch                    # screenfetch
     nerd-fonts-fira-code
@@ -98,9 +100,8 @@ packages=(
     xdotool
     xournal
     youtube-dl
+    zprint
     zsh
-    expect
-    aqbanking
 )
 
 function main() {
@@ -111,6 +112,7 @@ function main() {
     sudo systemctl start sshd
     # sudo systemctl enable --now networkmanager
     sudo systemctl enable --now cronie
+    sudo systemctl enable --now docker
 
     sh -c "$(curl -fsSL https://starship.rs/install.sh)"
 

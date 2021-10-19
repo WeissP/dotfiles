@@ -37,7 +37,7 @@ xclock -geometry 50x50-1+1 &
 
 setxkbmap de &
 xset r rate 230 30 & 
-xset -dpms &
+# xset -dpms &
 
 export GTK_IM_MODULE=fcitx 
 export QT_IM_MODULE=fcitx
@@ -76,7 +76,7 @@ Mouse_ID=$(xinput list | grep "ELECOM ELECOM TrackBall Mouse" | head -n 1 | sed 
 xinput set-prop ${Mouse_ID} 'libinput Button Scrolling Button' 9 &
 xinput set-prop ${Mouse_ID} "libinput Scroll Method Enabled" 0 0 1 &
 
-syncthing &
+syncthing -no-browser &
 flameshot &
 redshiftDual &
 

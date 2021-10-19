@@ -99,6 +99,7 @@ alias hibernate="sudo systemctl hibernate"
 alias hh="cd /home/weiss/clojure/hledger-helper/ && lein run"
 alias edit="emacsclient -c"
 alias redshiftDual="redshift -m randr:crtc=0 -l 51.5:10.5 -t 6500:3300 -b 1:0.9 & redshift -m randr:crtc=1 -l 51.5:10.5 -t 6500:3300  -b 1:1 &"
+alias mnt="bb /home/weiss/clojure/scripts/mount.clj"
 
 setxkbmap de
 mouse.sh

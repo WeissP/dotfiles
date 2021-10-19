@@ -9,7 +9,7 @@ import cfscrape
 import cloudscraper
 
 backupPath = "/home/weiss/Documents/OrgFiles/avList.txt"
-avPath = '/run/media/weiss/Seagate_Backup/porn/'
+avPath = '/run/media/weiss/Seagate_Backup/videos/porn/'
 avTestPath = '/run/media/weiss/Seagate_Backup/porn/test'
 
 
@@ -47,11 +47,11 @@ def getAvInfo(html):
     cast = html.xpath('//div[@id="video_cast"]//span[@class="star"]/a/text()')
     # print(tag + cast)
     if len(cast) > 1:
-        gruppenSexTag = "|GruppenSex|"
+        gruppenSexTag = ",GruppenSex,"
     else:
         gruppenSexTag = ""
     if tag and cast:
-        return "【%s】%s %s" % ("、".join(cast), "|".join(tag), gruppenSexTag)
+        return "【%s】%s %s" % ("、".join(cast), ",".join(tag), gruppenSexTag)
     else:
         return ""
 
@@ -99,7 +99,7 @@ def rename(avPath):
             "carib", "").replace(".com", "").replace("1pon", "").replace(
                 "1pondo",
                 "").replace("gg999", "").replace("play999", "").replace(
-                    "luxu", "").replace("fun2048", "").replace("one2048", "")
+                    "luxu", "").replace("fun2048", "").replace("one2048", "").replace("hhd800", "")
         avCode = re.search(r"[a-zA-Z]{2,5}-?\d{3,5}", fileNameFilter)
         oldName = os.path.join(avPath, fileName)
         if avCode:

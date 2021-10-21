@@ -93,13 +93,15 @@ alias control="cd /home/weiss/KaRat/Docker/karat-ros-docker/ &&  sh run_karat_co
 alias qmkc="cd /home/weiss/qmk_firmware/keyboards && qmk compile -kb handwired/dactyl_manuform/6x6 -km weiss"
 alias qmkf="cd /home/weiss/qmk_firmware/keyboards && qmk flash -kb handwired/dactyl_manuform/6x6 -km weiss"
 alias ka="killall -9 "
-alias scp="adb connect 192.168.8.130:5555 && scrcpy -Sw &"
-alias setup="/home/weiss/weiss/setup.sh"
-alias hibernate="sudo systemctl hibernate"
+alias scp="scrcpy -Sw &"
+alia="/home/weiss/weiss/setup.sh"
+alias hibernate="systemctl hibernate"
+alias hybrid-sleep="systemctl hybrid-sleep"
 alias hh="cd /home/weiss/clojure/hledger-helper/ && lein run"
 alias edit="emacsclient -c"
 alias redshiftDual="redshift -m randr:crtc=0 -l 51.5:10.5 -t 6500:3300 -b 1:0.9 & redshift -m randr:crtc=1 -l 51.5:10.5 -t 6500:3300  -b 1:1 &"
 alias mnt="bb /home/weiss/clojure/scripts/mount.clj"
+
 
 setxkbmap de
 mouse.sh

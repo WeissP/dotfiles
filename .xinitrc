@@ -37,7 +37,6 @@ xclock -geometry 50x50-1+1 &
 
 setxkbmap de &
 xset r rate 230 30 & 
-# xset -dpms &
 
 export GTK_IM_MODULE=fcitx 
 export QT_IM_MODULE=fcitx
@@ -58,8 +57,7 @@ blueman-applet &
 #     nm-applet --sm-disable &
 # fi
 
-adb connect 192.168.8.130:5555 &
-# # scrcpy -S &
+bb /home/weiss/clojure/scripts/adb-device.clj
 
 feh --bg-fill /home/weiss/Pictures/backgroud/vertical/Firewood-Texture-Wooden-Wallpaper-1440x2560.jpg /home/weiss/Pictures/backgroud/horizon/Wood-Wallpapers-33-2560-x-1440.jpg &
 

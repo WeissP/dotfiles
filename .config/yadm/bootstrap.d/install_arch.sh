@@ -123,6 +123,10 @@ function main() {
     cd $MYUSERDIR/
     git clone git@github.com:WeissP/.password-store.git
 
+    cd $MYUSERDIR/weiss
+    git clone git@github.com:mwh/dragon.git
+    make install
+
     mkdir -p $MYUSERDIR/clojure
     cd $MYUSERDIR/clojure
     git clone git@github.com:WeissP/hledger-helper.git

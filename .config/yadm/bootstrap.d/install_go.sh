@@ -18,7 +18,7 @@ packages=(
     github.com/acroca/go-symbols
     # github.com/golangci/golangci-lint/cmd/golangci-lint
     github.com/haya14busa/goplay/cmd/goplay
-    github.com/nsf/gocode
+    github.com/mdempsky/gocode
     golang.org/x/tools/cmd/goimports
     # golang.org/x/tools/cmd/gotype
     # golang.org/x/tools/cmd/guru

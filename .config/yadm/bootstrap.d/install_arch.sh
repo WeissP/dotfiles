@@ -7,7 +7,6 @@ source ./common.sh
 # Packages
 packages=(
     # timeshift
-    leiningen
     adobe-source-code-pro-fonts
     adobe-source-han-sans-cn-fonts
     adobe-source-han-sans-hk-fonts
@@ -48,9 +47,11 @@ packages=(
     google-chrome
     gperf
     gpick
+    htop
     hunspell
     hunspell-de
     hunspell-en_us
+    leiningen
     libappindicator-gtk3
     mbuffer
     mplayer
@@ -97,6 +98,7 @@ packages=(
     wqy-zenhei
     xautomation
     xbindkeys
+    xclip
     xdotool
     xournal
     youtube-dl

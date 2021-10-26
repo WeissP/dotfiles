@@ -1,4 +1,5 @@
 * * * * * bb /home/weiss/clojure/recentf-db/clean_recentf.clj
+1 * * * * bb /home/weiss/clojure/scripts/adb-device.clj
 * * * * * env DISPLAY=:0 bb /home/weiss/clojure/scripts/xorg-set-value.clj
 0 12 * * * pg_dump recentf > /home/weiss/clojure/recentf-db/recentf.dmp
 

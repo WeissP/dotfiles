@@ -92,6 +92,7 @@ packages=(
     unclutter-xfixes-git
     unzip
     update-grub
+    wget
     wqy-bitmapfont
     wqy-microhei
     wqy-microhei-lite

@@ -46,18 +46,15 @@ sh /home/weiss/.screenlayout/vertical.sh &
 
 trayer --monitor 0 --edge top --distancefrom top --SetDockType false --SetPartialStrut false --expand true --width 20 --align right --transparent true --alpha 0 --tint 0x2e3440 --height 24&
 
-# xmobar -x 1 /home/weiss/.config/xmobar/xmobarrc1.hs &
-
 fcitx &
 
-# sudo modprobe bluetooth &
 blueman-applet &
 
 # if [ -x /usr/bin/nm-applet ] ; then
 #     nm-applet --sm-disable &
 # fi
 
-bb /home/weiss/clojure/scripts/adb-device.clj
+
 
 feh --bg-fill /home/weiss/Pictures/backgroud/vertical/Firewood-Texture-Wooden-Wallpaper-1440x2560.jpg /home/weiss/Pictures/backgroud/horizon/Wood-Wallpapers-33-2560-x-1440.jpg &
 
@@ -76,10 +73,10 @@ xinput set-prop ${Mouse_ID} "libinput Scroll Method Enabled" 0 0 1 &
 
 syncthing -no-browser &
 flameshot &
-redshiftDual &
 
 # for scrcpy
-adb tcpip 5555
+bb /home/weiss/clojure/scripts/adb-device.clj &
+adb tcpip 5555 &
 
 mouse.sh &
 xscreensaver -no-splash &

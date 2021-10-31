@@ -4,7 +4,15 @@ parent_path=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
 cd "$parent_path"
 source ./common.sh 
 
+packages=(
+    js-beautify
+)
+
 function main() {
+    check
+
+    install
+
     echo "start clone"
     cd $MYUSERDIR
     git clone https://git.savannah.gnu.org/git/emacs.git

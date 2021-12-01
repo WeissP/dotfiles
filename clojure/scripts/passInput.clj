@@ -1,5 +1,7 @@
 (use '[clojure.java.shell :only [sh]])
 
+;; (def *command-line-args* ["douban"])
+
 (defn getPassInfo
   [name]
   (->> name
@@ -17,11 +19,9 @@
   [autotype info-map]
   (map (fn [x]
          (if-let [value (get info-map x)]
-           `("xdotool" "type" "--clearmodifiers" ~value)
+           `("xdotool" "type" "--clearmodifiers" ~(clojure.string/trim value))
            '("xdotool" "key" "Tab")))
     (drop 1 (clojure.string/split autotype #" "))))
-
-;; (sh "xdotool" "type --clearmodifiers 'jj'")
 
 (let [l (getPassInfo (first *command-line-args*))
       info-map (gen-map (->> l
@@ -29,8 +29,10 @@
                              (drop 1))
                         (first l))
       autotype (last l)
-      cmds (parseAutotype autotype info-map)]
-  (map (fn [cmd] (apply sh cmd) (Thread/sleep 10)) cmds))
+      cmds (parseAutotype autotype info-map)
+      ]
+  (map (fn [cmd] (apply sh cmd) (Thread/sleep 10)) cmds)
+)
 
 
 

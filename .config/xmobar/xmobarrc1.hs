@@ -28,6 +28,6 @@ Config
       \ <fc=#666666>|</fc>\
       \ <fc=#98be65>%dynnetwork%</fc>\
       \ }{\
-      \ <fn=3>%_XMONAD_LOG_Hori%</fn>\
+      \ <fn=3>%_XMONAD_LOG_Hori%</fn> \
       \"
   }

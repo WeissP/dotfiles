@@ -1,5 +1,5 @@
 # XScreenSaver Preferences File
-# Written by xscreensaver-settings 6.01 for weiss on Thu Oct 14 17:01:55 2021.
+# Written by xscreensaver-settings 6.02 for weiss on Tue Nov  9 09:50:19 2021.
 # https://www.jwz.org/xscreensaver/
 
 timeout:	0:10:00
@@ -19,7 +19,7 @@ unfade:		False
 fadeSeconds:	0:00:03
 ignoreUninstalledPrograms:False
 font:		
-dpmsEnabled:	True
+dpmsEnabled:	False
 dpmsQuickOff:	False
 dpmsStandby:	2:00:00
 dpmsSuspend:	2:00:00
@@ -283,6 +283,8 @@ programs:								      \
   GL: 				gibson -root				    \n\
   GL: 				headroom -root				    \n\
   GL: 				sphereeversion -root			    \n\
+				binaryhorizon -root			    \n\
+				marbling -root				    \n\
 
 
 pointerHysteresis:  10

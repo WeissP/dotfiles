@@ -61,6 +61,7 @@ packages=(
     network-manager-applet
     networkmanager-iwd
     npm
+    ntp
     oft-symbola
     openconnect
     openssh
@@ -137,6 +138,8 @@ function main() {
     mkdir -p $MYUSERDIR/go/src
     cd $MYUSERDIR/go/src
     git clone git@github.com:WeissP/OrgTimer.git
+
+    timedatectl set-ntp 1
 }
 
 main

@@ -6,7 +6,7 @@ if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
     command mkdir -p "$HOME/.zinit" && command chmod g-rwX "$HOME/.zinit"
     command git clone https://github.com/zdharma/zinit "$HOME/.zinit/bin" && \
         print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
-        print -P "%F{160}▓▒░ The clone has failed.%f%b"
+            print -P "%F{160}▓▒░ The clone has failed.%f%b"
 fi
 
 source "$HOME/.zinit/bin/zinit.zsh"
@@ -16,10 +16,10 @@ autoload -Uz _zinit
 # Load a few important annexes, without Turbo
 # (this is currently required for annexes)
 zinit light-mode for \
-    zinit-zsh/z-a-rust \
-    zinit-zsh/z-a-as-monitor \
-    zinit-zsh/z-a-patch-dl \
-    zinit-zsh/z-a-bin-gem-node
+      zinit-zsh/z-a-rust \
+      zinit-zsh/z-a-as-monitor \
+      zinit-zsh/z-a-patch-dl \
+      zinit-zsh/z-a-bin-gem-node
 
 ### End of Zinit's installer chunk
 
@@ -83,8 +83,8 @@ alias ydl='read link && cd ~/Downloads && youtube-dl -r 1500k $link'
 alias ydla='read link && cd ~/Downloads && youtube-dl -x $link' #only audio
 alias pyav="python /home/weiss/Python/getAvInfo.py"
 alias yays="yay -S "
-alias vpnon="sudo systemctl start tukVpn.service"
-alias vpnoff="sudo systemctl stop tukVpn.service"
+alias vpnon="nmcli connection up wgtuk-Full-desk"
+alias vpnoff="nmcli connection down wgtuk-Full-desk"
 alias lsg="exa --long --git"
 alias dmpbk="pg_dump quizzes > /home/weiss/KaRat/datenbank/quizzes.dmp"
 alias dmpl="psql -d quizzes < home/weiss/KaRat/datenbank/quizzes.dmp"
@@ -100,7 +100,8 @@ alias hh="cd /home/weiss/clojure/hledger-helper/ && lein run"
 alias edit="emacsclient -c"
 alias redshiftDual="redshift -m randr:crtc=0 -l 51.5:10.5 -t 6500:3300 -b 1:0.9 & redshift -m randr:crtc=1 -l 51.5:10.5 -t 6500:3300  -b 1:1 &"
 alias mnt="bb /home/weiss/clojure/scripts/mount.clj"
-
+alias update-pdf="rsync -PaAXv '/home/weiss/Downloads/my_tmp/flatten_pdf/' '/home/weiss/Documents/'"
+alias watch-pdf="cd /home/weiss/clojure/convert-pdf/ && lein run"
 
 setxkbmap de
 mouse.sh

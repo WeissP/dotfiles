@@ -77,6 +77,7 @@ flameshot &
 # for scrcpy
 bb /home/weiss/clojure/scripts/adb-device.clj &
 adb tcpip 5555 &
+nmcli connection down wgtuk-Full-desk &
 
 mouse.sh &
 xscreensaver -no-splash &

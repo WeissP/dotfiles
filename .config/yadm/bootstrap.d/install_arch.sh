@@ -79,6 +79,7 @@ packages=(
     ripgrep-all
     rsnapshot
     rsync
+    ruby-fusuma
     scrcpy
     sdcv
     spotify

@@ -21,6 +21,8 @@ export PATH=HOME/.cabal/bin:$HOME/.local/bin:$PATH
 export GO111MODULE=auto
 export GOPROXY=https://goproxy.cn # https://athens.azurefd.net
 export GOPATH=$HOME/go
+export GOROOT=$HOME/go/bin/
+# export GOROOT=
 export PATH=${GOPATH//://bin:}/bin:$PATH
 
 # QMK
@@ -32,3 +34,6 @@ export KARAT_ROS_TAG="melodic"
 
 # hledger
 export LEDGER_FILE=$HOME/finance/2021.journal
+
+# Rust
+export PATH=/home/weiss/.cargo/bin:$PATH

@@ -103,6 +103,11 @@ alias mnt="bb /home/weiss/clojure/scripts/mount.clj"
 alias update-pdf="rsync -PaAXv '/home/weiss/Downloads/my_tmp/flatten_pdf/' '/home/weiss/Documents/'"
 alias watch-pdf="cd /home/weiss/clojure/convert-pdf/ && lein run"
 
+alias arp="ip neighbor"
+alias ifconfig="ip address"
+alias netstat="ss"
+alias route="ip route"
+
 setxkbmap de
 mouse.sh
 

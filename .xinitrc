@@ -80,5 +80,6 @@ adb tcpip 5555 &
 nmcli connection down wgtuk-Full-desk &
 
 mouse.sh &
+libinput-gestures-setup autostart start &
 xscreensaver -no-splash &
 exec xmonad 

@@ -10,5 +10,5 @@ unclutter --exclude-root --ignore-scrolling&
 # xrandr --output eDP1 --mode 3000x2000 --pos 0x0 --scale 0.55x0.55 --rotate normal --output DP1 --primary --mode 1920x1080 --pos 1650x0 --rotate normal --output DP2 --off --output VIRTUAL1 --off &
 # xbindkeys -f ~/.xbindkeysrc&
 mouse.sh&
-emacs --dump-file="/home/weiss/.emacs.d/emacs.pdmp"
+emacs --dump-file="~/.emacs.d/emacs.pdmp"
  # sslocal -c ~/.config/shadowsocks/config.json && # mountavf # xset r rate 230 30 

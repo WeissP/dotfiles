@@ -59,6 +59,9 @@ zinit ice as"completion"
 zinit snippet https://github.com/docker/cli/blob/master/contrib/completion/zsh/_docker
 zinit ice as"completion"
 zinit snippet https://github.com/docker/compose/tree/master/contrib/completion/zsh/_docker-compose
+zinit ice as"completion"
+zinit snippet /home/weiss/weiss/zsh/completions/_diesel
+
 
 gen-tags() {
     read ctagslang'?langs:'
@@ -102,11 +105,22 @@ alias redshiftDual="redshift -m randr:crtc=0 -l 51.5:10.5 -t 6500:3300 -b 1:0.9 
 alias mnt="bb /home/weiss/clojure/scripts/mount.clj"
 alias update-pdf="rsync -PaAXv '/home/weiss/Downloads/my_tmp/flatten_pdf/' '/home/weiss/Documents/'"
 alias watch-pdf="cd /home/weiss/clojure/convert-pdf/ && lein run"
+alias mp="mplayer "
 
 alias arp="ip neighbor"
 alias ifconfig="ip address"
 alias netstat="ss"
 alias route="ip route"
+
+alias pre_beg="dunstctl set-paused true && xscreensaver-command -exit &"
+alias pre_end="dunstctl set-paused false && xscreensaver -no-splash &"
+
+alias cg="cargo"
+# alias cc="cargo check"
+# alias cbr="cargo build --release"
+alias rs_musl='/home/weiss/rust/hisweb/'
+# λ  alias rust-musl-builder=''
+# λ  rust-musl-builder cargo build --release
 
 setxkbmap de
 mouse.sh

@@ -1,13 +1,13 @@
 __build_info:
   rime_version: 1.7.3
   timestamps:
-    default: 1634200159
+    default: 1654509031
     default.custom: 1634200159
     flypyplus.custom: 0
     flypyplus.schema: 1634200159
-    key_bindings: 1634200159
+    key_bindings: 1654509031
     key_bindings.custom: 0
-    punctuation: 1634200159
+    punctuation: 1654509031
     punctuation.custom: 0
 custom_phraseVD:
   db_class: stabledb
@@ -202,7 +202,7 @@ schema:
     - "方案设计：何海峰 <flypy@qq.com>"
   description: |
     全码表
-    
+
   name: "小鹤音形 +"
   schema_id: flypyplus
   version: 9.0

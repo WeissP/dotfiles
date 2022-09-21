@@ -1,9 +1,9 @@
 # XScreenSaver Preferences File
-# Written by xscreensaver-settings 6.02 for weiss on Tue Nov  9 09:50:19 2021.
+# Written by xscreensaver-demo 6.04 for weiss on Sun Jun 26 11:18:53 2022.
 # https://www.jwz.org/xscreensaver/
 
-timeout:	0:10:00
-cycle:		0:05:00
+timeout:	0:03:00
+cycle:		0:00:00
 lock:		False
 lockTimeout:	0:00:00
 passwdTimeout:	0:00:30
@@ -16,7 +16,7 @@ demoCommand:	xscreensaver-settings
 nice:		10
 fade:		True
 unfade:		False
-fadeSeconds:	0:00:03
+fadeSeconds:	0:00:01
 ignoreUninstalledPrograms:False
 font:		
 dpmsEnabled:	False
@@ -285,6 +285,10 @@ programs:								      \
   GL: 				sphereeversion -root			    \n\
 				binaryhorizon -root			    \n\
 				marbling -root				    \n\
+  GL: 				mapscroller -root			    \n\
+  GL: 				squirtorus -root			    \n\
+  GL: 				chompytower -root			    \n\
+  GL: 				nakagin -root				    \n\
 
 
 pointerHysteresis:  10

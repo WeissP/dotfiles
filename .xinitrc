@@ -65,7 +65,7 @@ thunderbird &
 spotify &
 emacs --dump-file='/home/weiss/.emacs.d/emacs.pdmp' &
 chromium &
-google-chrome-stable &
+# google-chrome-stable &
 
 Mouse_ID=$(xinput list | grep "ELECOM ELECOM TrackBall Mouse" | head -n 1 | sed -r 's/.*id=([0-9]+).*/\1/') &
 xinput set-prop ${Mouse_ID} 'libinput Button Scrolling Button' 9 &
@@ -75,11 +75,12 @@ syncthing -no-browser &
 flameshot &
 
 # for scrcpy
-bb /home/weiss/clojure/scripts/adb-device.clj &
-adb tcpip 5555 &
+# bb /home/weiss/clojure/scripts/adb-device.clj &
+# adb tcpip 5555 &
+
 nmcli connection down wgtuk-Full-desk &
 
 mouse.sh &
-libinput-gestures-setup autostart start &
-xscreensaver -no-splash &
+fusuma &
+# xscreensaver -no-splash &
 exec xmonad 

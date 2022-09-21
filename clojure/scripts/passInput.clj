@@ -31,6 +31,7 @@
       autotype (last l)
       cmds (parseAutotype autotype info-map)
       ]
+  (sh "fcitx-remote" "-s" "fcitx-keyboard-de-nodeadkeys")
   (map (fn [cmd] (apply sh cmd) (Thread/sleep 10)) cmds)
 )
 

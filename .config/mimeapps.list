@@ -15,6 +15,7 @@ x-scheme-handler/https=chromium.desktop
 x-scheme-handler/org-protocol=org-protocol.desktop
 x-scheme-handler/unknown=chromium.desktop
 x-scheme-handler/discord-402572971681644545=discord-402572971681644545.desktop
+x-scheme-handler/eclipse+command=_usr_lib_dbeaver_.desktop
 
 [Added Associations]
 image/aces=qimgv.desktop;

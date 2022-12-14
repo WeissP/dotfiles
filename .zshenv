@@ -37,3 +37,6 @@ export LEDGER_FILE=$HOME/finance/2021.journal
 
 # Rust
 export PATH=/home/weiss/.cargo/bin:$PATH
+
+# digivne
+export DIGIVINE_DB_TEST_URL="postgres://weiss@localhost/digivine"

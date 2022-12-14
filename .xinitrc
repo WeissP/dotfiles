@@ -62,7 +62,7 @@ unclutter --exclude-root --ignore-scrolling&
 xbindkeys &
 
 thunderbird &
-spotify &
+# spotify &
 emacs --dump-file='/home/weiss/.emacs.d/emacs.pdmp' &
 chromium &
 # google-chrome-stable &
@@ -82,5 +82,5 @@ nmcli connection down wgtuk-Full-desk &
 
 mouse.sh &
 fusuma &
-# xscreensaver -no-splash &
+xscreensaver -no-splash &
 exec xmonad 

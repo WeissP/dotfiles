@@ -87,6 +87,7 @@ Belarusian:by:Belarusian (legacy):legacy:
 Belarusian:by:Belarusian (Latin):latin:
 Belarusian:by:Russian (Belarus):ru:
 Belarusian:by:Belarusian (intl.):intl:
+Belarusian:by:Belarusian (phonetic):phonetic:
 Belgian:be:
 Belgian:be:Belgian (alt.):oss:
 Belgian:be:Belgian (Latin-9 only, alt.):oss_latin9:
@@ -116,11 +117,12 @@ Indian:in:Oriya:ori:
 Indian:in:Oriya (Bolnagri):ori-bolnagri:
 Indian:in:Oriya (Wx):ori-wx:
 Indian:in:Ol Chiki:olck:
-Indian:in:Tamil (TamilNet '99):tam_tamilnet:
-Indian:in:Tamil (TamilNet '99 with Tamil numerals):tam_tamilnet_with_tam_nums:
-Indian:in:Tamil (TamilNet '99, TAB encoding):tam_tamilnet_TAB:
-Indian:in:Tamil (TamilNet '99, TSCII encoding):tam_tamilnet_TSCII:
-Indian:in:Tamil (InScript):tam:
+Indian:in:Tamil (TamilNet '99):tamilnet:
+Indian:in:Tamil (TamilNet '99 with Tamil numerals):tamilnet_tamilnumbers:
+Indian:in:Tamil (TamilNet '99, TAB encoding):tamilnet_TAB:
+Indian:in:Tamil (TamilNet '99, TSCII encoding):tamilnet_TSCII:
+Indian:in:Tamil (InScript, with Arabic numerals):tam:
+Indian:in:Tamil (InScript, with Tamil numerals):tam_tamilnumbers:
 Indian:in:Telugu:tel:
 Indian:in:Telugu (KaGaPa, phonetic):tel-kagapa:
 Indian:in:Telugu (Sarala):tel-sarala:
@@ -185,9 +187,7 @@ Burmese:mm:Mon (A1):mnw-a1:
 French (Canada):ca:
 French (Canada):ca:French (Canada, Dvorak):fr-dvorak:
 French (Canada):ca:French (Canada, legacy):fr-legacy:
-French (Canada):ca:Canadian (intl.):multix:
-French (Canada):ca:Canadian (intl., 1st part):multi:
-French (Canada):ca:Canadian (intl., 2nd part):multi-2gr:
+French (Canada):ca:Canadian (CSA):multix:
 French (Canada):ca:Inuktitut:ike:
 French (Canada):ca:English (Canada):eng:
 French (Canada):ca:Kutenai:kut:
@@ -245,6 +245,7 @@ Estonian:ee:Estonian (US):us:
 Estonian:ee:Estonian (Sun Type 6/7):sun_type6:
 Persian:ir:
 Persian:ir:Persian (with Persian keypad):pes_keypad:
+Persian:ir:Azerbaijani (Iran):azb:
 Persian:ir:Kurdish (Iran, Latin Q):ku:
 Persian:ir:Kurdish (Iran, F):ku_f:
 Persian:ir:Kurdish (Iran, Latin Alt-Q):ku_alt:
@@ -409,7 +410,6 @@ Spanish (Latin American):latam:Spanish (Latin American, no dead keys):nodeadkeys
 Spanish (Latin American):latam:Spanish (Latin American, dead tilde):deadtilde:
 Spanish (Latin American):latam:Spanish (Latin American, Dvorak):dvorak:
 Spanish (Latin American):latam:Spanish (Latin American, Colemak):colemak:
-Spanish (Latin American):latam:Spanish (Latin American, Colemak for gaming):colemak-gaming:
 Lithuanian:lt:
 Lithuanian:lt:Lithuanian (standard):std:
 Lithuanian:lt:Lithuanian (US):us:
@@ -500,6 +500,8 @@ Russian:ru:Russian (phonetic):phonetic:
 Russian:ru:Russian (phonetic, Windows):phonetic_winkeys:
 Russian:ru:Russian (phonetic, YAZHERTY):phonetic_YAZHERTY:
 Russian:ru:Russian (typewriter):typewriter:
+Russian:ru:Russian (engineering, RU):ruchey_ru:
+Russian:ru:Russian (engineering, EN):ruchey_en:
 Russian:ru:Russian (legacy):legacy:
 Russian:ru:Russian (typewriter, legacy):typewriter-legacy:
 Russian:ru:Tatar:tt:
@@ -529,8 +531,7 @@ Russian:ru:Russian (with US punctuation):unipunct:
 Russian:ru:Russian (GOST 6431-75):gost-6431-75-48:
 Russian:ru:Russian (GOST 14289-88):gost-14289-88:
 Russian:ru:Russian (Polyglot and Reactionary):prxn:
-Russian:ru:Russian (Engineering, Cyrillic):ruchey_cyrillic:
-Russian:ru:Russian (Engineering, Latin):ruchey_latin:
+Russian:ru:Russian (Programmer):winkeys-p:
 Serbian:rs:
 Serbian:rs:Serbian (Cyrillic, ZE and ZHE swapped):yz:
 Serbian:rs:Serbian (Latin):latin:
@@ -702,8 +703,9 @@ Moldavian:md:
 Moldavian:md:Moldavian (Gagauz):gag:
 Indonesian (Latin):id:
 Indonesian (Latin):id:Javanese:javanese:
-Indonesian (Latin):id:Indonesian (Arab Pegon, phonetic):phonetic:
-Indonesian (Latin):id:Indonesian (Arab Pegon, extended phonetic):phoneticx:
+Indonesian (Latin):id:Indonesian (Arab Melayu, phonetic):melayu-phonetic:
+Indonesian (Latin):id:Indonesian (Arab Melayu, extended phonetic):melayu-phoneticx:
+Indonesian (Latin):id:Indonesian (Arab Pegon, phonetic):pegon-phonetic:
 Malay (Jawi, Arabic Keyboard):my:
 Malay (Jawi, Arabic Keyboard):my:Malay (Jawi, phonetic):phonetic:
 A user-defined custom Layout:custom:

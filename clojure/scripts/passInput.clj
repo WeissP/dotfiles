@@ -1,5 +1,5 @@
-(use '[clojure.java.shell :only [sh]])
-
+;; (use '[clojure.java.shell :only [sh]])
+(require '[babashka.process :refer [shell sh process check]])
 ;; (def *command-line-args* ["douban"])
 
 (defn getPassInfo
@@ -29,11 +29,11 @@
                              (drop 1))
                         (first l))
       autotype (last l)
-      cmds (parseAutotype autotype info-map)
-      ]
-  (sh "fcitx-remote" "-s" "fcitx-keyboard-de-nodeadkeys")
-  (map (fn [cmd] (apply sh cmd) (Thread/sleep 10)) cmds)
-)
+      cmds (parseAutotype autotype info-map)]
+  (shell "fcitx-remote" "-s" "fcitx-keyboard-de-nodeadkeys")
+  (doseq [cmd cmds]
+    (apply shell cmd)
+    (Thread/sleep 10)))
 
 
 

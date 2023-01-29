@@ -14,6 +14,7 @@ export PATH=/usr/lib/jvm/java-11-openjdk/bin/:$PATH
 
 # Haskell
 export PATH=HOME/.cabal/bin:$HOME/.local/bin:$PATH
+export PATH=$HOME/.ghcup/bin/:$PATH
 # export XMONAD_CONFIG_DIR=$HOME/.config/xmonad-project
 # export XMONAD_DATA_DIR=$HOME/.config/xmonad-project
 
@@ -39,4 +40,6 @@ export LEDGER_FILE=$HOME/finance/2021.journal
 export PATH=/home/weiss/.cargo/bin:$PATH
 
 # digivne
+export DIGIVINE_ROOT_PATH="/home/weiss/weiss/digiVine/"
 export DIGIVINE_DB_TEST_URL="postgres://weiss@localhost/digivine"
+export POSTGIS_DIESEL_DATABASE_URL="postgres://weiss@localhost/digivine"

@@ -722,9 +722,12 @@ key_bindings:
   - { key: PageDown,  mods: Shift,   mode: ~Alt,        action: ScrollPageDown }
   - { key: Home,      mods: Shift,   mode: ~Alt,        action: ScrollToTop,   }
   - { key: End,       mods: Shift,   mode: ~Alt,        action: ScrollToBottom }
-  - { key: V,      mods: Control,    mode: ~Alt,        action: Paste            }
+  - { key: V,         mods: Control,                  action: Paste            }
+  - { key: Tab,       mods: Control,                      chars: "\x1b[27;5;9~"} # pass C-tab to terminal
+  - { key: Tab,       mods: Control|Shift,                chars: "\x1b[27;6;9~"} # pass C-S-tab to terminal
 
   # Vi Mode
+
   - { key: End, mods: Shift|Control,   mode: ~Search,    action: ToggleViMode            }
   - { key: Space,  mods: Shift|Control, mode: Vi|~Search, action: ScrollToBottom          }
   - { key: Escape,                      mode: Vi|~Search, action: ClearSelection          }

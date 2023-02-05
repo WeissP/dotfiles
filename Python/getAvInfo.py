@@ -95,6 +95,8 @@ def rename(avPath):
         if re.search(r"fertig", fileName):
             continue
         print(fileName)
+        if fileName == "subtitles":
+            continue
         fileNameFilter = fileName.replace("hjd", "").replace(
             "carib", "").replace(".com", "").replace("1pon", "").replace(
                 "1pondo",

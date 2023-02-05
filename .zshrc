@@ -122,6 +122,11 @@ alias rs_musl='/home/weiss/rust/hisweb/'
 # λ  alias rust-musl-builder=''
 # λ  rust-musl-builder cargo build --release
 
+sync_thunderbird_filters () {
+    echo "sync from local to desktop:$desktop_ip"
+
+}
+
 setxkbmap de
 mouse.sh
 

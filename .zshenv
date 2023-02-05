@@ -40,6 +40,10 @@ export LEDGER_FILE=$HOME/finance/2021.journal
 export PATH=/home/weiss/.cargo/bin:$PATH
 
 # digivne
-export DIGIVINE_ROOT_PATH="/home/weiss/weiss/digiVine/"
-export DIGIVINE_DB_TEST_URL="postgres://weiss@localhost/digivine"
+# export DIGIVINE_ROOT_PATH="/home/weiss/weiss/digiVine/"
+# export DIGIVINE_DB_TEST_URL="postgres://weiss@localhost/digivine"
 export POSTGIS_DIESEL_DATABASE_URL="postgres://weiss@localhost/digivine"
+
+# Desktop
+export DESKTOP_IP="192.168.8.30"
+export DESKTOP_THUNDERBIRD_FILTER_PATH="/home/weiss/.thunderbird/jbjgkpa4.default-release/ImapMail/"
